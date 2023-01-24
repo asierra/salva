@@ -9,11 +9,12 @@ Getting Started
 
 1. Install rvm in your linux distribution 
 2. Install ruby 2.7.2p137
-3. Install the gems with the ruby bundler
-4. Run ``yarn install``
-5. Install PostgresSQL 15.x, MemCached, Redis and ImageMagick
-6. Create your database, run the seeds to populate your database
-7. Copy the *yml.example files to *yml files in the config directory and
+3. Install SQLite3, Node.js and Yarn following the instructions from the [Rails Guides](https://guides.rubyonrails.org/v6.1/getting_started.html#creating-a-new-rails-project-installing-rails).
+4. Install the gems with the ruby bundler
+5. Run ``yarn install``
+6. Install PostgresSQL 15.x, MemCached, Redis and ImageMagick
+7. Create your database, run the seeds to populate your database
+8. Copy the *yml.example files to *yml files in the config directory and
    adapt them to your configuration (The required are databases.yml, site.yml and mail.yml)
 8. Install passenger with apache or ngnix
 9. Start to web server
