@@ -34,7 +34,7 @@ coverage
 nbproject
 .css-cache
 app/files/*
-app/assets/javascripts/simile-widgets/* # should this really be ignored?
+app/assets/javascripts/simile-widgets/*
 public/stylesheets/application.css
 public/stylesheets/ie.css
 public/stylesheets/print.css
