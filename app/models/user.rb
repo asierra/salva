@@ -141,7 +141,7 @@ class User < ActiveRecord::Base
   has_many :user_adscriptions
   has_many :user_adscription_records
   has_many :jobpositions
-  has_one  :user_adscription, -> {include(:jobposition).order(user_adscriptions: { start_date: :desc, end_date: :desc }) }
+  has_one  :user_adscription, -> {includes(:jobposition).order('user_adscriptions.start_date DESC, user_adscriptions.end_date DESC') }
   has_one  :jobposition_as_conacyt, -> { where(jobpositions: { jobpositioncategory_id: 185 }).order(jobposition: { start_date: :desc, end_date: :desc}) }, :class_name => 'Jobposition'
   has_one  :user_adscription_as_conacyt, -> { where(jobpositions: {jobpositioncategory_id: 185}, user_adscriptions: { jobposition_id: jobpositions.id }).include(:jobposition).order(user_adscriptions: { start_date: :desc, end_date: :desc }) }, :class_name => 'UserAdscription' # TODO: check correct syntax for user_adscriptions: { jobposition_id: jobpositions.id })
   has_one  :jobposition_as_postdoctoral, -> { where(jobpositions: { jobpositioncategory_id: 38 }).order(jobpositions: { start_date: :desc, end_date: :desc }) }, :class_name => 'Jobposition'
@@ -514,20 +514,22 @@ class User < ActiveRecord::Base
   end
 
   def request_id_card
-    jp = Jobposition.most_recent_jp(user.id)
-    u_id = user.id
-    a_id = jp.user_adscription.adscription_id if user.has_adscription?
-    j_id = jp.id
-    year = Time.now.year
-    create_ldap_user(user) if User.ldap_enabled?
-    UserAdscriptionRecord.create(:user_id=>u_id,:adscription_id=>a_id,:jobposition_id=>j_id,:year=>year)
-    Notifier.identification_card_request(user.id).deliver
+    create_ldap_user(self) if User.ldap_enabled?
+    u_id = self.id
+    jp = Jobposition.most_recent_jp(u_id)
+    if jp
+      a_id = jp.user_adscription.adscription_id if self.has_adscription?
+      j_id = jp.id
+      year = Time.now.year
+      UserAdscriptionRecord.create(:user_id=>u_id,:adscription_id=>a_id,:jobposition_id=>j_id,:year=>year)
+      Notifier.identification_card_request(u_id).deliver
+    end
   end
 
-  def after_updates
-    if user.has_adscription? then
+  def user_updates
+    if self.has_adscription? then
       year = Time.now.year
-     u_id = user.id
+     u_id = self.id
      uar = UserAdscriptionRecord.where(:user_id=>u_id, :year=>year).first
      j_id = uar.jobposition_id
      a_id = uar.adscription_id
@@ -535,20 +537,20 @@ class User < ActiveRecord::Base
      ua = UserAdscription.where(:user_id=>u_id).last
      ua.update_attributes(:adscription_id=>a_id)
    end
-   if user.userstatus_id_changed?
-     Notifier.updated_userstatus_to_admin(user.id).deliver
+   if self.userstatus_id_changed?
+     Notifier.updated_userstatus_to_admin(self.id).deliver
    end
-   if !user.password.nil? and User.ldap_enabled?
-     update_ldap_user(user)
+   if !self.password.nil? and User.ldap_enabled?
+     update_ldap_user(self)
    end
-   if user.has_image? and user.person.image.changed? and User.aleph_enabled?
-     create_or_update_aleph_account(user)
+   if self.has_image? and self.person.image.changed? and User.aleph_enabled?
+     create_or_update_aleph_account(self)
    end
   end
 
   def destroy_connected_users
-    destroy_ldap_user(user) if User.ldap_enabled?
-    destroy_aleph_user(user) if User.aleph_enabled?
+    destroy_ldap_user(self) if User.ldap_enabled?
+    destroy_aleph_user(self) if User.aleph_enabled?
   end
 
 end
