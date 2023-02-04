@@ -51,94 +51,94 @@ SimpleNavigation::Configuration.run do |navigation|
     #primary.item :profile, 'Perfil', user_profile_path, :highlights_on => /^\/$/ do |s|
     primary.item :profile, 'Perfil', '/', :highlights_on => /^\/$/ do |s|
       s.item :user_profile, 'Información general', user_profile_path, :highlights_on => /\/user_profile/
-      # s.item :jobpositions, 'Categorías', jobpositions_path, :highlights_on => /\/jobpositions/ # this route does not exist?
+      s.item :jobpositions, 'Categorías', jobpositions_path, :highlights_on => /\/jobpositions/ # this route does not exist?
       s.item :jobposition_log, :'Antigüedad en la UNAM', jobposition_log_path, :highlights_on => /\/jobposition_log/
-      # s.item :external_jobpositions, 'Experiencia profesional externa', external_jobpositions_path, :highlights_on => /\/external_jobpositions/ # this route does not exist?
-      # s.item :educations, 'Escolaridad', educations_path, :highlights_on => /\/educations/
-      # s.item :projects, 'Proyectos', projects_path, :highlights_on => /\/projects/
-      # s.item :user_lab_or_groups, 'Laboratorios o grupos', user_lab_or_groups_path, :highlights_on => /\/user_lab_or_groups/
-      # s.item :user_knowledge_areas, 'Áreas de investigación', user_knowledge_areas_path, :highlights_on => /\/user_knowledge_areas/
-      # s.item :user_research_lines, 'Líneas de investigación', user_research_lines_path, :highlights_on => /\/user_research_lines/
+      s.item :external_jobpositions, 'Experiencia profesional externa', external_jobpositions_path, :highlights_on => /\/external_jobpositions/ # this route does not exist?
+      s.item :educations, 'Escolaridad', educations_path, :highlights_on => /\/educations/
+      s.item :projects, 'Proyectos', projects_path, :highlights_on => /\/projects/
+      s.item :user_lab_or_groups, 'Laboratorios o grupos', user_lab_or_groups_path, :highlights_on => /\/user_lab_or_groups/
+      s.item :user_knowledge_areas, 'Áreas de investigación', user_knowledge_areas_path, :highlights_on => /\/user_knowledge_areas/
+      s.item :user_research_lines, 'Líneas de investigación', user_research_lines_path, :highlights_on => /\/user_research_lines/
       s.item :user_cites, 'Número de citas', user_cite_path, :highlights_on => /\/user_cite/
-      # s.item :user_stimuli, 'Estímulos académicos', user_stimuli_path, :highlights_on => /\/user_stimuli/
-      # s.item :course_attendees, 'Cursos recibidos', course_attendees_path, :highlights_on => /\/course_attendees/
-      # s.item :conference_attendees, 'Asistencia a eventos académicos', conference_attendees_path, :highlights_on => /\/conference_attendees/
-      # s.item :user_schoolarships, 'Becas', user_schoolarships_path, :highlights_on => /\/user_schoolarships/
-      # s.item :memberships, 'Membresias en asociaciones académicas', memberships_path, :highlights_on => /\memberships/
-      # s.item :user_prizes, 'Premios recibidos', user_prizes_path, :highlights_on => /\/user_prizes/
-      # s.item :user_credits, 'Agradecimientos y otros créditos', user_credits_path, :highlights_on => /\/user_credits/
-      # s.item :institutional_activities, 'Participación institucional', institutional_activities_path, :highlights_on => /\/institutional_activities/
-      # s.item :user_languages, 'Idiomas', user_languages_path, :highlights_on => /\/user_languages/
-      # s.item :user_skills, 'Técnicas experimentales y habilidades', user_skills_path, :highlights_on => /\/user_skills/
+      s.item :user_stimuli, 'Estímulos académicos', user_stimuli_path, :highlights_on => /\/user_stimuli/
+      s.item :course_attendees, 'Cursos recibidos', course_attendees_path, :highlights_on => /\/course_attendees/
+      s.item :conference_attendees, 'Asistencia a eventos académicos', conference_attendees_path, :highlights_on => /\/conference_attendees/
+      s.item :user_schoolarships, 'Becas', user_schoolarships_path, :highlights_on => /\/user_schoolarships/
+      s.item :memberships, 'Membresias en asociaciones académicas', memberships_path, :highlights_on => /\memberships/
+      s.item :user_prizes, 'Premios recibidos', user_prizes_path, :highlights_on => /\/user_prizes/
+      s.item :user_credits, 'Agradecimientos y otros créditos', user_credits_path, :highlights_on => /\/user_credits/
+      s.item :institutional_activities, 'Participación institucional', institutional_activities_path, :highlights_on => /\/institutional_activities/
+      s.item :user_languages, 'Idiomas', user_languages_path, :highlights_on => /\/user_languages/
+      s.item :user_skills, 'Técnicas experimentales y habilidades', user_skills_path, :highlights_on => /\/user_skills/
       s.item :user_settings, 'Página web', user_settings_path, :highlights_on => /\/user_settings/
-      # s.item :videos, 'Videos', videos_path, :highlights_on => /\/videos/
+      s.item :videos, 'Videos', videos_path, :highlights_on => /\/videos/
     end
 
-    # primary.item :publications, 'Publicaciones', articles_path do |s|
-    #   s.item :articles, 'Artículos publicados', articles_path, :highlights_on => /\/articles/
-    #   s.item :selected_articles, 'Artículos selectos', selected_articles_path, :highlights_on => /\/selected_articles/
-    #   s.item :unpublished_articles, 'Artículos enviados o aceptados', unpublished_articles_path, :highlights_on => /\/unpublished_articles/
-    #   s.item :book_authors, 'Autoría de libros', book_authors_path, :highlights_on => /\/book_authors/
-    #   s.item :selected_books, 'Libros selectos', selected_books_path, :highlights_on => /\/selected_books/
-    #   s.item :book_chapters, 'Capítulos en libros', book_chapters_path, :highlights_on => /\/book_chapters/
-    #   s.item :refereed_inproceedings, 'Artículos en memorias arbitradas', refereed_inproceedings_path, :highlights_on => /\/refereed_inproceedings/
-    #   s.item :technical_reports, 'Reportes técnicos', technical_reports_path, :highlights_on => /\/technical_reports/
-    #   s.item :reviews, 'Reseñas', reviews_path, :highlights_on => /\/reviews/
-    #   s.item :unrefereed_inproceedings, 'Artículos en memorias In Extenso', unrefereed_inproceedings_path, :highlights_on => /\/unrefereed_inproceedings/
-    # end
+    primary.item :publications, 'Publicaciones', articles_path do |s|
+      s.item :articles, 'Artículos publicados', articles_path, :highlights_on => /\/articles/
+      s.item :selected_articles, 'Artículos selectos', selected_articles_path, :highlights_on => /\/selected_articles/
+      s.item :unpublished_articles, 'Artículos enviados o aceptados', unpublished_articles_path, :highlights_on => /\/unpublished_articles/
+      s.item :book_authors, 'Autoría de libros', book_authors_path, :highlights_on => /\/book_authors/
+      s.item :selected_books, 'Libros selectos', selected_books_path, :highlights_on => /\/selected_books/
+      s.item :book_chapters, 'Capítulos en libros', book_chapters_path, :highlights_on => /\/book_chapters/
+      s.item :refereed_inproceedings, 'Artículos en memorias arbitradas', refereed_inproceedings_path, :highlights_on => /\/refereed_inproceedings/
+      s.item :technical_reports, 'Reportes técnicos', technical_reports_path, :highlights_on => /\/technical_reports/
+      s.item :reviews, 'Reseñas', reviews_path, :highlights_on => /\/reviews/
+      s.item :unrefereed_inproceedings, 'Artículos en memorias In Extenso', unrefereed_inproceedings_path, :highlights_on => /\/unrefereed_inproceedings/
+    end
 
-    # primary.item :seminary_and_conferences, 'Congresos', seminaries_path do |s|
-    #   s.item :seminaries, 'Seminarios y conferencias', seminaries_path, :highlights_on => /\/seminaries/
-    #   s.item :conference_organizers, 'Comités de congresos', conference_organizers_path, :highlights_on => /\/conference_organizers/
-    #   s.item :conference_talks, 'Trabajos presentados en congresos', conference_talks_path, :highlights_on => /\/conference_talks/
-    # end
+    primary.item :seminary_and_conferences, 'Congresos', seminaries_path do |s|
+      s.item :seminaries, 'Seminarios y conferencias', seminaries_path, :highlights_on => /\/seminaries/
+      s.item :conference_organizers, 'Comités de congresos', conference_organizers_path, :highlights_on => /\/conference_organizers/
+      s.item :conference_talks, 'Trabajos presentados en congresos', conference_talks_path, :highlights_on => /\/conference_talks/
+    end
 
-    # primary.item :refereed_colaborations, 'Colaboración en publicaciones', user_refereed_journals_path do |s|
-    #   s.item :user_refereed_journals, 'Arbitraje en revistas', user_refereed_journals_path, :highlights_on => /\/user_refereed_journals/
-    #   s.item :book_collaborations, 'Colaboración en libros', book_collaborations_path, :highlights_on => /\/book_collaborations/
-    #   s.item :proceeding_collaborations, 'Colaboración en memorias', proceeding_collaborations_path, :highlights_on => /\/proceeding_collaborations/
-    #   s.item :user_journals, 'Colaboración en revistas', user_journals_path, :highlights_on => /\/user_journals/
-    # end
+    primary.item :refereed_colaborations, 'Colaboración en publicaciones', user_refereed_journals_path do |s|
+      s.item :user_refereed_journals, 'Arbitraje en revistas', user_refereed_journals_path, :highlights_on => /\/user_refereed_journals/
+      s.item :book_collaborations, 'Colaboración en libros', book_collaborations_path, :highlights_on => /\/book_collaborations/
+      s.item :proceeding_collaborations, 'Colaboración en memorias', proceeding_collaborations_path, :highlights_on => /\/proceeding_collaborations/
+      s.item :user_journals, 'Colaboración en revistas', user_journals_path, :highlights_on => /\/user_journals/
+    end
 
-  #   primary.item :popular_science, 'Divulgación', newspaper_articles_path do |s|
-  #     s.item :newspaper_articles, 'Artículos periodísticos', newspaper_articles_path, :highlights_on => /\/newspaper_articles/
-  #     s.item :popular_science_works, 'Trabajos de divulgación', popular_science_works_path, :highlights_on => /\/popular_science_works/
-  #   end
+    primary.item :popular_science, 'Divulgación', newspaper_articles_path do |s|
+      s.item :newspaper_articles, 'Artículos periodísticos', newspaper_articles_path, :highlights_on => /\/newspaper_articles/
+      s.item :popular_science_works, 'Trabajos de divulgación', popular_science_works_path, :highlights_on => /\/popular_science_works/
+    end
 
-  #   primary.item :outreach_activities, 'Vinculación', professor_advices_path do |s|
-  #     s.item :professor_advices, 'Asesoría de personal académico', professor_advices_path, :highlights_on => /\/professor_advices/
-  #     s.item :institutional_advices, 'Asesoría a instituciones', institutional_advices_path, :highlights_on => /\/institutional_advices/
-  #     s.item :outreach_works, 'Trabajos de vinculación', outreach_works_path, :highlights_on => /\/outreach_works/
-  #   end
+    primary.item :outreach_activities, 'Vinculación', professor_advices_path do |s|
+      s.item :professor_advices, 'Asesoría de personal académico', professor_advices_path, :highlights_on => /\/professor_advices/
+      s.item :institutional_advices, 'Asesoría a instituciones', institutional_advices_path, :highlights_on => /\/institutional_advices/
+      s.item :outreach_works, 'Trabajos de vinculación', outreach_works_path, :highlights_on => /\/outreach_works/
+    end
 
-  #   primary.item :teaching, 'Docencia', regular_courses_path do |s|
-  #     s.item :regular_courses, 'Cursos regulares', regular_courses_path, :highlights_on => /\/regular_courses/
-  #     s.item :course_instructors, 'Cursos especiales', course_instructors_path, :highlights_on => /\/course_instructors/
-  #     s.item :theses, 'Dirección de tesis', theses_path, :highlights_on => /\/theses/
-  #     s.item :thesis_examinations, 'Jurado de tesis', thesis_examinations_path, :highlights_on => /\/thesis_examinations/
-  #     s.item :tutorial_committees, 'Comités tutorales', tutorial_committees_path, :highlights_on => /\/tutorial_committees/
-  #     s.item :student_advices, 'Asesoría a estudiantes', student_advices_path, :highlights_on => /\/student_advices/
-  #     s.item :other_teaching_activities, 'Actividades de docencia', other_teaching_activities_path, :highlights_on => /\/other_teaching_activities/
-  #     s.item :teaching_products, 'Productos de docencia', teaching_products_path, :highlights_on => /\/teaching_products/
-  #   end
+    primary.item :teaching, 'Docencia', regular_courses_path do |s|
+      s.item :regular_courses, 'Cursos regulares', regular_courses_path, :highlights_on => /\/regular_courses/
+      s.item :course_instructors, 'Cursos especiales', course_instructors_path, :highlights_on => /\/course_instructors/
+      s.item :theses, 'Dirección de tesis', theses_path, :highlights_on => /\/theses/
+      s.item :thesis_examinations, 'Jurado de tesis', thesis_examinations_path, :highlights_on => /\/thesis_examinations/
+      s.item :tutorial_committees, 'Comités tutorales', tutorial_committees_path, :highlights_on => /\/tutorial_committees/
+      s.item :student_advices, 'Asesoría a estudiantes', student_advices_path, :highlights_on => /\/student_advices/
+      s.item :other_teaching_activities, 'Actividades de docencia', other_teaching_activities_path, :highlights_on => /\/other_teaching_activities/
+      s.item :teaching_products, 'Productos de docencia', teaching_products_path, :highlights_on => /\/teaching_products/
+    end
 
-  #   primary.item :tech_activities, 'Actividades técnico - académicas', technical_activities_path do |s|
-  #     s.item :technical_activities, 'Actividades técnicas', technical_activities_path, :highlights_on => /\/technical_activities/
-  #     s.item :technical_products, 'Productos técnicos', technical_products_path, :highlights_on => /\/technical_products/
-  #   end
+    primary.item :tech_activities, 'Actividades técnico - académicas', technical_activities_path do |s|
+      s.item :technical_activities, 'Actividades técnicas', technical_activities_path, :highlights_on => /\/technical_activities/
+      s.item :technical_products, 'Productos técnicos', technical_products_path, :highlights_on => /\/technical_products/
+    end
 
-  #   primary.item :others, 'Otros', popular_science_activities_path do |s|
-  #     s.item :popular_science_activities, 'Actividades de difusión y extensión', popular_science_activities_path, :highlights_on => /\/popular_science_activities/
-  #     s.item :academic_exchanges, 'Intercambio académico', academic_exchanges_path, :highlights_on => /\/academic_exchanges/
-  #     s.item :other_activities, 'Otras actividades', other_activities_path, :highlights_on => /\/other_activities/
-  #     s.item :other_works, 'Otros productos', other_works_path, :highlights_on => /\/other_works/
-  #   end
+    primary.item :others, 'Otros', popular_science_activities_path do |s|
+      s.item :popular_science_activities, 'Actividades de difusión y extensión', popular_science_activities_path, :highlights_on => /\/popular_science_activities/
+      s.item :academic_exchanges, 'Intercambio académico', academic_exchanges_path, :highlights_on => /\/academic_exchanges/
+      s.item :other_activities, 'Otras actividades', other_activities_path, :highlights_on => /\/other_activities/
+      s.item :other_works, 'Otros productos', other_works_path, :highlights_on => /\/other_works/
+    end
 
-  #   primary.item :reports, 'Informes', user_annual_reports_path do |s|
-  #     s.item :user_annual_reports, 'Informe anual', user_annual_reports_path, :highlights_on => /\/user_annual_reports/
-  #     s.item :user_annual_plans, 'Plan de trabajo', user_annual_plans_path, :highlights_on => /\/user_annual_plans/
-  #     s.item :user_resume, 'Curriculum Vítae', user_resume_path, :highlights_on => /\/user_resume/
-  #  end
+    primary.item :reports, 'Informes', user_annual_reports_path do |s|
+      s.item :user_annual_reports, 'Informe anual', user_annual_reports_path, :highlights_on => /\/user_annual_reports/
+      s.item :user_annual_plans, 'Plan de trabajo', user_annual_plans_path, :highlights_on => /\/user_annual_plans/
+      s.item :user_resume, 'Curriculum Vítae', user_resume_path, :highlights_on => /\/user_resume/
+   end
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.
     # Conditions are part of the options. They are evaluated in the context of the views,

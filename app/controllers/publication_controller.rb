@@ -105,6 +105,8 @@ class PublicationController < InheritedResources::Base
   end
 
   def scoped_resource_class
+    puts "fsdd #{self.resource_class}"
+    puts "   dasda #{self.resource_class_scope}"
     has_resource_class_scope? ? self.resource_class.send(self.resource_class_scope) : self.resource_class
   end
 

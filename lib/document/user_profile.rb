@@ -1,4 +1,4 @@
-class UserProfile
+class Document::UserProfile
 
   def self.find(user_id)
     new(user_id)

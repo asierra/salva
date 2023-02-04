@@ -15,9 +15,9 @@ class Inproceeding < ActiveRecord::Base
 
   has_paper_trail
 
-  default_scope -> { order(inproceedings: {authors: :asc, title: :asc }) }
+  default_scope -> { order("inproceedings.authors ASC, inproceedings.title ASC") }
 
-  scope :ordered_by_year, order("proceedings.year DESC, inproceedings.authors  ASC, inproceedings.title ASC")
+  scope :ordered_by_year, -> { order("proceedings.year DESC, inproceedings.authors  ASC, inproceedings.title ASC") }
   scope :refereed, -> { joins("INNER JOIN proceedings ON proceedings.isrefereed = 't' AND inproceedings.proceeding_id = proceedings.id").ordered_by_year }
   scope :unrefereed, -> { joins("INNER JOIN proceedings ON proceedings.isrefereed = 'f' AND inproceedings.proceeding_id = proceedings.id").ordered_by_year }
 

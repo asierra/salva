@@ -1,6 +1,6 @@
 class Bookedition < ActiveRecord::Base
   # attr_accessor :book_attributes, :edition, :isbn, :pages, :year, :month, :mediatype_id, :editionstatus_id,
-                  :bookedition_roleinbooks_attributes
+  #                 :bookedition_roleinbooks_attributes
   validates_presence_of :edition, :mediatype_id, :year, :month
   validates_numericality_of :id, :allow_nil => true, :greater_than => 0, :only_integer => true
   validates_numericality_of  :mediatype_id,  :greater_than => 0, :only_integer => true
@@ -24,9 +24,9 @@ class Bookedition < ActiveRecord::Base
 
   has_paper_trail
 
-  scope :recent, :order => 'year DESC, month DESC',  :limit => 20
-  scope :published, :conditions => 'editionstatus_id = 1'
-  scope :inprogress, :conditions => 'editionstatus_id != 1'
+  scope :recent, -> { order('year DESC, month DESC').limit(20) }
+  scope :published, -> { where(editionstatus_id: 1) }
+  scope :inprogress, -> { where.not(editionstatus_id: 1) }
 
   scope :authors, -> { joins(:bookedition_roleinbooks).
                   where("bookedition_roleinbooks.roleinbook_id = 1 OR bookedition_roleinbooks.roleinbook_id = 2") }

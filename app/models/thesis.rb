@@ -30,8 +30,8 @@ class Thesis < ActiveRecord::Base
   mount_uploader :document, DocumentUploader
 
   # attr_accessor :title, :authors, :user_theses_attributes, :thesismodality_id, :thesisstatus_id, :end_date, :career_attributes, :start_date, :url,
-                  :startyear, :startmonth, :endyear, :endmonth, :is_verified, :user_theses_attributes, :user_ids, :document, :document_cache, :remove_document,
-                  :other, :institution_id, :university_id, :country_id, :degree_id, :career_id
+  #                 :startyear, :startmonth, :endyear, :endmonth, :is_verified, :user_theses_attributes, :user_ids, :document, :document_cache, :remove_document,
+  #                 :other, :institution_id, :university_id, :country_id, :degree_id, :career_id
   alias_attribute :name, :title
   has_paper_trail
 

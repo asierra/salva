@@ -1,7 +1,7 @@
 require 'document/reporter/builder'
 ::I18n.locale = I18n.locale.to_sym
 require 'irb'
-module Reporter
+module Document::Reporter
   class Base
     def self.find(attributes={})
       @reporter = new(attributes)

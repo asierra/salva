@@ -6,11 +6,11 @@ class Document < ActiveRecord::Base
   belongs_to :document_type
   belongs_to :approved_by, :class_name => 'User'
 
-  # # attr_accessor :user_id, :ip_address, :documenttype_id, :file, :approved_by_id, :document_type_id
-  # # attr_accessor :comments, :as => :academic
-  # # attr_accessor :approved, :as => :academic
+  # attr_accessor :user_id, :ip_address, :documenttype_id, :file, :approved_by_id, :document_type_id
+  # attr_accessor :comments, :as => :academic # TODO: check what this is supposed to do
+  # attr_accessor :approved, :as => :academic # TODO: check what this is supposed to do
 
-  scope :sort_by_documenttype, -> { order(documenttypes: { start_date: :desc, end_date: :desc }).joins([:documenttype], readonly: false) }
+  scope :sort_by_documenttype, -> { order('documenttypes.start_date DESC, documenttypes.end_date DESC').joins([:documenttype], readonly: false) }
   scope :fullname_asc, -> { joins(:user=>:person).order('people.lastname1 ASC, people.lastname2 ASC, people.firstname ASC').sort_by_documenttype }
   scope :annual_reports, -> { joins(:documenttype).where("documenttypes.name LIKE 'Informe anual de actividades%'").sort_by_documenttype }
   scope :annual_plans, -> { joins(:documenttype).where("documenttypes.name LIKE 'Plan de trabajo%'").sort_by_documenttype }
