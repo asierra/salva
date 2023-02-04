@@ -65,13 +65,13 @@ gem 'attribute_normalizer', '~> 1.1' # some configuration disabled in 1.2
 gem 'inherited_resources', '~> 1.13', '>= 1.13.1'
 gem 'pg', '~> 1.4', '>= 1.4.5'
 # gem "meta_search", "~> 1.1.3" # cannot be added, depends on actionpack ~> 3.1 activerecord ~> 3.1 activesupport ~> 3.1
+# add ransack instead
 # gem 'squeel', '~> 1.2', '>= 1.2.3' # cannot be added, depends on polyamorous which has been deprecated after Rails 4
 
 #Graphs
 gem 'lazy_high_charts', '~> 1.6', '>= 1.6.1'
 
-# Rails 3.1 - Asset Pipeline
-# gem "sass", "~> 3.2.1" # not needed
+# Rails 6.1 - Asset Pipeline
 gem 'json', '~> 2.6', '>= 2.6.3'
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
 gem 'uglifier', '~> 4.2'
@@ -115,24 +115,22 @@ gem 'activeresource'
 # gem 'rails-observers' # cannot be readded up to activemodel 4.0
 
 gem "net-http" # Fixes warnings
-# /home/debian/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
-# /home/debian/.rvm/gems/ruby-2.7.2/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
-# /home/debian/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
-# /home/debian/.rvm/gems/ruby-2.7.2/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
-# /home/debian/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
-# /home/debian/.rvm/gems/ruby-2.7.2/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
+# ~/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0/net/protocol.rb:66: warning: already initialized constant Net::ProtocRetryError
+# ~/.rvm/gems/ruby-2.7.2/gems/net-protocol-0.2.1/lib/net/protocol.rb:68: warning: previous definition of ProtocRetryError was here
+# ~/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0/net/protocol.rb:206: warning: already initialized constant Net::BufferedIO::BUFSIZE
+# ~/.rvm/gems/ruby-2.7.2/gems/net-protocol-0.2.1/lib/net/protocol.rb:214: warning: previous definition of BUFSIZE was here
+# ~/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0/net/protocol.rb:503: warning: already initialized constant Net::NetPrivate::Socket
+# ~/.rvm/gems/ruby-2.7.2/gems/net-protocol-0.2.1/lib/net/protocol.rb:541: warning: previous definition of Socket was here
 
 
 
 # Rails Admin
 gem 'fastercsv', '~> 1.5', '>= 1.5.5'
 gem 'rails_admin', '~> 3.1', '>= 3.1.1'
-gem 'activeadmin', '~> 2.13', '>= 2.13.1' #inherited_resources ~> 1.7 jquery-rails ~> 4.2 kaminari ~> 1.0, >= 1.2.1
+gem 'activeadmin', '~> 2.13', '>= 2.13.1'
 
 # Database seeds
 gem 'highline', '~> 2.1'
-
-#end old
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -147,8 +145,6 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-
-  #OLD
   gem 'spring'
   gem "rails3-generators", "0.17.4", :require => "rails/generators"
   gem 'hpricot', '~> 0.8.6'
@@ -163,7 +159,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  # OLD
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'machinist', '~> 2.0'
@@ -178,8 +173,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  # gem "rack-ssl-enforcer", "0.2.4", :require => "rack/ssl-enforcer" # not needed
-  gem 'capistrano-rvm', '~> 0.1.2' # capistrano ~> 3.0
+  gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano', '~> 3.17', '>= 3.17.1'
   gem 'execjs', '~> 2.8', '>= 2.8.1'
   gem 'therubyracer', '~> 0.12.3'
