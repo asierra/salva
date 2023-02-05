@@ -1,5 +1,9 @@
 class InitialSchema < ActiveRecord::Migration
   def self.up
+    unless table_exists? :moduser
+      create_table :modusers, :force => true do |t|
+      end
+    end
     unless table_exists? :academicprograms
       create_table :academicprograms, :force => true do |t|
         t.references :institutioncareer, :academicprogramtype, :null => false
