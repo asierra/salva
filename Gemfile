@@ -66,6 +66,7 @@ gem 'inherited_resources', '~> 1.13', '>= 1.13.1'
 gem 'pg', '~> 1.4', '>= 1.4.5'
 # gem "meta_search", "~> 1.1.3" # cannot be added, depends on actionpack ~> 3.1 activerecord ~> 3.1 activesupport ~> 3.1
 # add ransack instead
+gem 'ransack'
 # gem 'squeel', '~> 1.2', '>= 1.2.3' # cannot be added, depends on polyamorous which has been deprecated after Rails 4
 
 #Graphs

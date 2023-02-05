@@ -31,8 +31,8 @@ module Reporter
       @date_style = options[:date_style] || :month_and_year
     end
 
-    def search(options={})
-      scoped_class.search(options).all.collect do |record|
+    def ransack(options={})
+      scoped_class.ransack.result(options).all.collect do |record|
         record.respond_to?(:to_s) ? normalize_text(record.to_s) : "Define to_s method in #{record.class}"
       end
     end

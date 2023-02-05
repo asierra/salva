@@ -7,5 +7,5 @@ class Period < ActiveRecord::Base
   has_many :user_regularcourses
   has_many :regularcourses, :through => :user_regularcourses
 
-  default_scope -> { order('periods.startdate DESC').includes(user_regularcourses: :regularcourse) }
+  default_scope -> { order('periods.startdate DESC').includes(:user_regularcourses) } # TODO: check what this is supposed to do
 end

@@ -35,7 +35,7 @@ class Thesis < ActiveRecord::Base
   alias_attribute :name, :title
   has_paper_trail
 
-  default_scope -> { order(theses: { end_date: :desc, start_date: :desc, authors: :asc, title: :asc }) }
+  default_scope -> { order('theses.end_date DESC, theses.start_date DESC, theses.authors ASC, theses.title ASC') }
   scope :user_id_eq, lambda { |user_id| joins(:user_theses).where(:user_theses => { :user_id => user_id }) }
 
   scope :user_id_not_eq, lambda { |user_id|

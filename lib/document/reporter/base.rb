@@ -36,9 +36,9 @@ module Document::Reporter
 
     def collection(subsection)
       if subsection.date_style == :date_disabled
-        subsection.search(:user_id_eq => @attributes[:user_id_eq])
+        subsection.ransack(:user_id_eq => @attributes[:user_id_eq])
       else
-        subsection.search(merge_date_options(subsection))
+        subsection.ransack(merge_date_options(subsection))
       end
     end
 

@@ -36,7 +36,7 @@ class Conferencetalk < ActiveRecord::Base
     where(sql)
   }
 
-  default_scope -> { includes(:conference).order(conferences: { year: :desc }, conferencetalks: { authors: :asc, title: :asc }) }
+  default_scope -> { includes(:conference).order("conferences.year DESC, conferencetalks.authors ASC, conferencetalks.title ASC") }
   scope :local_scope, -> { where(conferences: { conferencescope_id: 1 }).include([:conference]) }
   scope :national_scope, -> { where(conferences: { conferencescope_id: 2 }).include([:conference]) }
   scope :international_scope, -> { where(conferences: { conferencescope_id: 3 }).include([:conference]) }

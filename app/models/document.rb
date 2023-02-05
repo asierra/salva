@@ -10,7 +10,7 @@ class Document < ActiveRecord::Base
   # attr_accessor :comments, :as => :academic # TODO: check what this is supposed to do
   # attr_accessor :approved, :as => :academic # TODO: check what this is supposed to do
 
-  scope :sort_by_documenttype, -> { order('documenttypes.start_date DESC, documenttypes.end_date DESC').joins([:documenttype], readonly: false) }
+  scope :sort_by_documenttype, -> { joins(:documenttype).order('documenttypes.start_date DESC, documenttypes.end_date DESC').joins([:documenttype]).readonly(false) }
   scope :fullname_asc, -> { joins(:user=>:person).order('people.lastname1 ASC, people.lastname2 ASC, people.firstname ASC').sort_by_documenttype }
   scope :annual_reports, -> { joins(:documenttype).where("documenttypes.name LIKE 'Informe anual de actividades%'").sort_by_documenttype }
   scope :annual_plans, -> { joins(:documenttype).where("documenttypes.name LIKE 'Plan de trabajo%'").sort_by_documenttype }
@@ -56,7 +56,7 @@ class Document < ActiveRecord::Base
   before_create :file_path
 
   def self.paginated_search(params)
-    is_not_hidden.fullname_asc.search(params[:search]).page(params[:page] || 1).per(params[:per_page] || 20)
+    is_not_hidden.fullname_asc.ransack.result(params[:search]).page(params[:page] || 1).per(params[:per_page] || 20)
   end
 
   def url

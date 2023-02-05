@@ -72,7 +72,7 @@ class UserResourcesController < InheritedResources::Base
   end
 
   def scoped_and_paginated_collection
-    set_collection_ivar scoped_resource_class.search(params[:search])
+    set_collection_ivar scoped_resource_class.ransack.result(params[:search])
                         .page(params[:page] || 1).per(params[:per_page] || 10)
   end
 

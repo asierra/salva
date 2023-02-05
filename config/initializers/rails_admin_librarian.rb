@@ -130,7 +130,7 @@ RailsAdmin.config do |config|
         field :users do
             searchable :user_articles => {:users => :author_name}
             #q = bindings[:controller].request.params[:query].to_s
-            #User.search(:fullname_like => q)
+            #User.ransack.result(:fullname_like => q)
           #end
         end
       end
@@ -394,7 +394,7 @@ RailsAdmin.config do |config|
 #        field :users do
 #            searchable :user_articles => {:users => :author_name}
 #            #q = bindings[:controller].request.params[:query].to_s
-#            #User.search(:fullname_like => q)
+#            #User.ransack.result(:fullname_like => q)
 #          #end
 #        end
 #      end
