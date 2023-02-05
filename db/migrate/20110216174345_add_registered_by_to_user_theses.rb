@@ -1,4 +1,4 @@
-class AddRegisteredByToUserTheses < ActiveRecord::Migration
+class AddRegisteredByToUserTheses < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists?  :user_theses, :moduser_id
       rename_column :user_theses, :moduser_id, :registered_by_id

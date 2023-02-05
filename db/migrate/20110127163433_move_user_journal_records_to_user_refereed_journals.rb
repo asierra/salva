@@ -1,4 +1,4 @@
-class MoveUserJournalRecordsToUserRefereedJournals < ActiveRecord::Migration
+class MoveUserJournalRecordsToUserRefereedJournals < ActiveRecord::Migration[6.1]
   def self.up
     UserJournal.where(:roleinjournal_id => 4).all.each do |record|
       @refereed_journal = UserRefereedJournal.create(:journal_id => record.journal_id,

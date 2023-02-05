@@ -1,4 +1,4 @@
-class UpgradedThesisDeleteTriggerInTheses < ActiveRecord::Migration
+class UpgradedThesisDeleteTriggerInTheses < ActiveRecord::Migration[6.1]
   def up
     execute "DROP FUNCTION IF EXISTS thesis_delete()"
 

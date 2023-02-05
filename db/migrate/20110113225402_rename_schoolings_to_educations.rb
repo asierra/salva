@@ -1,4 +1,4 @@
-class RenameSchoolingsToEducations < ActiveRecord::Migration
+class RenameSchoolingsToEducations < ActiveRecord::Migration[6.1]
   def self.up
     if table_exists? :educations
       drop_table :educations

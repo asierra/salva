@@ -1,4 +1,4 @@
-class AddIsEnabledToAdscriptions < ActiveRecord::Migration
+class AddIsEnabledToAdscriptions < ActiveRecord::Migration[6.1]
   def self.up
     add_column :adscriptions, :is_enabled, :boolean, :default => false
   end

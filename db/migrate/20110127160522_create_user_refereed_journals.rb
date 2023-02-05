@@ -1,4 +1,4 @@
-class CreateUserRefereedJournals < ActiveRecord::Migration
+class CreateUserRefereedJournals < ActiveRecord::Migration[6.1]
   def self.up
     create_table :user_refereed_journals do |t|
       t.references :user

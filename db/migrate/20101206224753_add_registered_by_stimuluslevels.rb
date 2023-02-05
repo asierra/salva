@@ -1,4 +1,4 @@
-class AddRegisteredByStimuluslevels < ActiveRecord::Migration
+class AddRegisteredByStimuluslevels < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :stimuluslevels, :moduser_id
       rename_column :stimuluslevels, :moduser_id, :registered_by_id

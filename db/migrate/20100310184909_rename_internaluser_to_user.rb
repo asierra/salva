@@ -1,4 +1,4 @@
-class RenameInternaluserToUser < ActiveRecord::Migration
+class RenameInternaluserToUser < ActiveRecord::Migration[6.1]
   def self.up
     if table_exists? :usercredits
       rename_column :usercredits, :internalusergive_id, :usergive_id

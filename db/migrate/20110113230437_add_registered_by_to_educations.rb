@@ -1,4 +1,4 @@
-class AddRegisteredByToEducations < ActiveRecord::Migration
+class AddRegisteredByToEducations < ActiveRecord::Migration[6.1]
   def self.up
     rename_column :educations, :moduser_id, :registered_by_id
     add_column    :educations, :modified_by_id, :integer

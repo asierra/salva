@@ -1,4 +1,4 @@
-class AddRegisteredByIdToReviews < ActiveRecord::Migration
+class AddRegisteredByIdToReviews < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists?  :reviews, :moduser_id
       rename_column :reviews, :moduser_id, :registered_by_id

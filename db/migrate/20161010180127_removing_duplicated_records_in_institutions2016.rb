@@ -1,4 +1,4 @@
-class RemovingDuplicatedRecordsInInstitutions2016 < ActiveRecord::Migration
+class RemovingDuplicatedRecordsInInstitutions2016 < ActiveRecord::Migration[6.1]
   def up
     puts "Normalizing names for Institutions..."
     Institution.all.each do |record|

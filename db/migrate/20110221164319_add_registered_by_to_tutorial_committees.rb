@@ -1,4 +1,4 @@
-class AddRegisteredByToTutorialCommittees < ActiveRecord::Migration
+class AddRegisteredByToTutorialCommittees < ActiveRecord::Migration[6.1]
    def self.up
     if column_exists?  :tutorial_committees, :moduser_id
       rename_column :tutorial_committees, :moduser_id, :registered_by_id

@@ -1,4 +1,4 @@
-class MoveInstitutionCareerIdInToCareerIdInIndivadvices < ActiveRecord::Migration
+class MoveInstitutionCareerIdInToCareerIdInIndivadvices < ActiveRecord::Migration[6.1]
   def up
     Indivadvice.where('indivadvicetarget_id <= 3').all.each do |record|
       career_id = record.career_id

@@ -1,4 +1,4 @@
-class AddRegisteredByToCareers < ActiveRecord::Migration
+class AddRegisteredByToCareers < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :careers, :moduser_id
       rename_column :careers, :moduser_id, :registered_by_id

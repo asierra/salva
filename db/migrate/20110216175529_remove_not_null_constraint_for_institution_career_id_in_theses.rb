@@ -1,4 +1,4 @@
-class RemoveNotNullConstraintForInstitutionCareerIdInTheses < ActiveRecord::Migration
+class RemoveNotNullConstraintForInstitutionCareerIdInTheses < ActiveRecord::Migration[6.1]
  def self.up
     execute "ALTER TABLE theses ALTER COLUMN institutioncareer_id DROP NOT NULL"
   end

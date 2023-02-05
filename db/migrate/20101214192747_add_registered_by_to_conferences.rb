@@ -1,4 +1,4 @@
-class AddRegisteredByToConferences < ActiveRecord::Migration
+class AddRegisteredByToConferences < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :conferences, :moduser_id
       rename_column :conferences, :moduser_id, :registered_by_id

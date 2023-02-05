@@ -1,4 +1,4 @@
-class AddRegisteredByToJournals < ActiveRecord::Migration
+class AddRegisteredByToJournals < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :journals, :moduser_id
       rename_column :journals, :moduser_id, :registered_by_id

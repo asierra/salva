@@ -1,4 +1,4 @@
-class UpdateVersions < ActiveRecord::Migration
+class UpdateVersions < ActiveRecord::Migration[6.1]
   def self.up
     unless table_exists? :versions
 

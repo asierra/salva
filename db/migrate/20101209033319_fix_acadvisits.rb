@@ -1,5 +1,5 @@
 # encoding: utf-8
-class FixAcadvisits < ActiveRecord::Migration
+class FixAcadvisits < ActiveRecord::Migration[6.1]
   def self.up
     unless column_exists? :acadvisits, :externaluser_id
       add_column :acadvisits, :externaluser_id, :integer

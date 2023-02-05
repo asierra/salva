@@ -1,4 +1,4 @@
-class CreateSessionPreferences < ActiveRecord::Migration
+class CreateSessionPreferences < ActiveRecord::Migration[6.1]
   def change
     create_table :session_preferences do |t|
       t.references :user
@@ -6,6 +6,5 @@ class CreateSessionPreferences < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :session_preferences, :user_id
   end
 end

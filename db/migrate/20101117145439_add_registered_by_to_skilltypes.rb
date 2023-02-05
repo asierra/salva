@@ -1,4 +1,4 @@
-class AddRegisteredByToSkilltypes < ActiveRecord::Migration
+class AddRegisteredByToSkilltypes < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :skilltypes, :moduser_id
       rename_column :skilltypes, :moduser_id, :registered_by_id

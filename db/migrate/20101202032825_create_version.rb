@@ -1,4 +1,4 @@
-class CreateVersion < ActiveRecord::Migration
+class CreateVersion < ActiveRecord::Migration[6.1]
   def self.up
     unless table_exists? :versions
       create_table :versions do |t|

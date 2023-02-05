@@ -1,4 +1,4 @@
-class InitialSchema < ActiveRecord::Migration
+class InitialSchema < ActiveRecord::Migration[6.1]
   def self.up
     unless table_exists? :moduser
       create_table :modusers, :force => true do |t|
@@ -141,6 +141,11 @@ class InitialSchema < ActiveRecord::Migration
       end
     end
 
+    unless table_exists? :old_articlestatuses
+      create_table :old_articlestatuses, :force => true do |t|
+      end
+    end
+
     unless table_exists? :articleslog
       create_table :articleslog, :force => true do |t|
         t.references :article, :null => false
@@ -275,6 +280,11 @@ class InitialSchema < ActiveRecord::Migration
         t.text :name, :null => false
         t.references :moduser, :class_name => 'User', :foreign_key => 'moduser_id'
         t.timestamps
+      end
+    end
+
+    unless table_exists? :citizen_countries
+      create_table :citizen_countries, :force => true do |t|
       end
     end
 
@@ -534,6 +544,11 @@ class InitialSchema < ActiveRecord::Migration
       end
     end
 
+    unless table_exists? :old_genericworkstatuses
+      create_table :old_genericworkstatuses, :force => true do |t|
+      end
+    end
+
     unless table_exists? :genericworkslog
       create_table :genericworkslog, :force => true do |t|
         t.references :genericwork, :null => false
@@ -747,6 +762,11 @@ class InitialSchema < ActiveRecord::Migration
         t.text :name, :null => false
         t.references :moduser, :class_name => 'User', :foreign_key => 'moduser_id'
         t.timestamps
+      end
+    end
+
+    unless table_exists? :old_jobpositioncategories
+      create_table :old_jobpositioncategories, :force => true do |t|
       end
     end
 
@@ -1415,7 +1435,6 @@ class InitialSchema < ActiveRecord::Migration
       create_table :sessions, :force => true do |t|
         t.references :session
         t.text :data
-        t.datetime :updated_at
         t.references :moduser, :class_name => 'User', :foreign_key => 'moduser_id'
         t.timestamps
       end
@@ -1588,8 +1607,6 @@ class InitialSchema < ActiveRecord::Migration
 
     unless table_exists? :trashes
       create_table :trashes, :force => true do |t|
-        t.datetime :created_at
-        t.datetime :updated_at
         t.references :moduser, :class_name => 'User', :foreign_key => 'moduser_id'
         t.timestamps
       end

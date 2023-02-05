@@ -1,4 +1,4 @@
-class AddRegisteredByInstadvice < ActiveRecord::Migration
+class AddRegisteredByInstadvice < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :instadvices, :moduser_id
       rename_column :instadvices, :moduser_id, :registered_by_id

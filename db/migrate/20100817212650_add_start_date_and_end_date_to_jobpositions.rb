@@ -1,4 +1,4 @@
-class AddStartDateAndEndDateToJobpositions < ActiveRecord::Migration
+class AddStartDateAndEndDateToJobpositions < ActiveRecord::Migration[6.1]
   def self.up
     add_column :jobpositions, :start_date, :date, :null => false, :default => Date.today
     add_column :jobpositions, :end_date, :date

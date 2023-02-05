@@ -1,4 +1,4 @@
-class FixOldDbUserresearchgroupsColumns < ActiveRecord::Migration
+class FixOldDbUserresearchgroupsColumns < ActiveRecord::Migration[6.1]
   def self.up
     unless column_exists? :userresearchgroups, :externaluser_id
       add_column :userresearchgroups, :externaluser_id, :integer

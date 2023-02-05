@@ -1,4 +1,4 @@
-class FillTableImpactFactors2016 < ActiveRecord::Migration
+class FillTableImpactFactors2016 < ActiveRecord::Migration[6.1]
   def up
     year = 2016
     journals = Journal.where("impact_index is not null")

@@ -1,4 +1,4 @@
-class MigrateStartyearStartmonthToStartDateInUserJournals < ActiveRecord::Migration
+class MigrateStartyearStartmonthToStartDateInUserJournals < ActiveRecord::Migration[6.1]
   def self.up
     UserSchoolarship.all.each do |record|
       if record.startyear.is_a? Integer

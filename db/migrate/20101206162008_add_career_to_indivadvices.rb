@@ -1,4 +1,4 @@
-class AddCareerToIndivadvices < ActiveRecord::Migration
+class AddCareerToIndivadvices < ActiveRecord::Migration[6.1]
   def self.up
     add_column :indivadvices, :career_id, :integer
   end

@@ -1,4 +1,4 @@
-class MoveInstitutionCareerIdToCareerIdInEducationRecords < ActiveRecord::Migration
+class MoveInstitutionCareerIdToCareerIdInEducationRecords < ActiveRecord::Migration[6.1]
   def self.up
     Education.all.each do |record|
       career_id = record.institutioncareer.career_id

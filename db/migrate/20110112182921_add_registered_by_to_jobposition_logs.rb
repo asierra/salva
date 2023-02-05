@@ -1,4 +1,4 @@
-class AddRegisteredByToJobpositionLogs < ActiveRecord::Migration
+class AddRegisteredByToJobpositionLogs < ActiveRecord::Migration[6.1]
   def self.up
     rename_column :jobposition_logs, :moduser_id, :registered_by_id
     add_column    :jobposition_logs, :modified_by_id, :integer

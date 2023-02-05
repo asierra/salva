@@ -1,4 +1,4 @@
-class ExtractPhotosFromPeopleToFileSystem < ActiveRecord::Migration
+class ExtractPhotosFromPeopleToFileSystem < ActiveRecord::Migration[6.1]
   def self.up
     base_path = Rails.root.to_s + '/tmp'
     Person.where("photo IS NOT NULL AND photo_content_type IS NOT NULL").all.each do |record|

@@ -1,4 +1,4 @@
-class RemovingDuplicatedRecordsInCareers2016 < ActiveRecord::Migration
+class RemovingDuplicatedRecordsInCareers2016 < ActiveRecord::Migration[6.1]
   def up
     puts "Normalizing names for Careers..."
     Career.all.each do |record|

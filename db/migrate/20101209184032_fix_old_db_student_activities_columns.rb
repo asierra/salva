@@ -1,4 +1,4 @@
-class FixOldDbStudentActivitiesColumns < ActiveRecord::Migration
+class FixOldDbStudentActivitiesColumns < ActiveRecord::Migration[6.1]
   def self.up
     unless column_exists? :student_activities, :tutor_externaluser_id
       add_column :student_activities, :tutor_externaluser_id, :integer

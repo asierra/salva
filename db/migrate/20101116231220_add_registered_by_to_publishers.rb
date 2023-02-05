@@ -1,4 +1,4 @@
-class AddRegisteredByToPublishers < ActiveRecord::Migration
+class AddRegisteredByToPublishers < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :publishers, :moduser_id
       rename_column :publishers, :moduser_id, :registered_by_id

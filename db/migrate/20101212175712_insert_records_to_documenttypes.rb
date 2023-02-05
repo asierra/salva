@@ -1,4 +1,4 @@
-class InsertRecordsToDocumenttypes < ActiveRecord::Migration
+class InsertRecordsToDocumenttypes < ActiveRecord::Migration[6.1]
   def self.up
 
     @dt1 = Documenttype.new(:name => 'Informe anual de actividades - 2010', :year => 2010,

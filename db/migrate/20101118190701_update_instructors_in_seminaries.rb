@@ -1,4 +1,4 @@
-class UpdateInstructorsInSeminaries < ActiveRecord::Migration
+class UpdateInstructorsInSeminaries < ActiveRecord::Migration[6.1]
   def self.up
     Seminary.all.each do |seminary|
       instructors = seminary.user_seminaries.where(:roleinseminary_id => 2).collect {|record| record.user.author_name }.join(', ')

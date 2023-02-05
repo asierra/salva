@@ -1,4 +1,4 @@
-class AddSignatureToDocuments < ActiveRecord::Migration
+class AddSignatureToDocuments < ActiveRecord::Migration[6.1]
   def self.up
     add_column :documents, :signature, :text
   end

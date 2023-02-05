@@ -1,4 +1,4 @@
-class DropIndexInThesisModalities < ActiveRecord::Migration
+class DropIndexInThesisModalities < ActiveRecord::Migration[6.1]
 
   def up
     execute "ALTER TABLE thesismodalities DROP CONSTRAINT IF EXISTS thesismodalities_name_key"

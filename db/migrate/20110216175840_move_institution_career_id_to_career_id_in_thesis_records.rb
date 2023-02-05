@@ -1,4 +1,4 @@
-class MoveInstitutionCareerIdToCareerIdInThesisRecords < ActiveRecord::Migration
+class MoveInstitutionCareerIdToCareerIdInThesisRecords < ActiveRecord::Migration[6.1]
  def self.up
     if Thesis.count > 0
     Thesis.all.each do |record|

@@ -1,4 +1,4 @@
-class AddStartDateAndEndDateToUserSchoolarships < ActiveRecord::Migration
+class AddStartDateAndEndDateToUserSchoolarships < ActiveRecord::Migration[6.1]
   def self.up
     add_column :user_schoolarships, :start_date, :date
     add_column :user_schoolarships, :end_date, :date

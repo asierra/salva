@@ -1,4 +1,4 @@
-class UpdateEndDateToThesesFromThesisJurors < ActiveRecord::Migration
+class UpdateEndDateToThesesFromThesisJurors < ActiveRecord::Migration[6.1]
   def up
     ThesisJuror.all.each do |record|
       if record.year.to_i > 0

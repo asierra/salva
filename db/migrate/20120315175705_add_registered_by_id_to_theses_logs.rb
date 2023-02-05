@@ -1,4 +1,4 @@
-class AddRegisteredByIdToThesesLogs < ActiveRecord::Migration
+class AddRegisteredByIdToThesesLogs < ActiveRecord::Migration[6.1]
   def change
     if column_exists? :theses_logs, :moduser_id
       rename_column :theses_logs, :moduser_id, :registered_by_id

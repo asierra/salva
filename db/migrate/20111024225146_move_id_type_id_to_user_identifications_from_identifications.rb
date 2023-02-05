@@ -1,4 +1,4 @@
-class MoveIdTypeIdToUserIdentificationsFromIdentifications < ActiveRecord::Migration
+class MoveIdTypeIdToUserIdentificationsFromIdentifications < ActiveRecord::Migration[6.1]
   def self.up
     UserIdentification.all.each do |record|
       record.update_attribute :idtype_id,  record.identification.idtype_id

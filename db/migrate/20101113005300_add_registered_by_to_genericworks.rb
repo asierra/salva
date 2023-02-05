@@ -1,4 +1,4 @@
-class AddRegisteredByToGenericworks < ActiveRecord::Migration
+class AddRegisteredByToGenericworks < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :genericworks, :moduser_id
       rename_column :genericworks, :moduser_id, :registered_by_id

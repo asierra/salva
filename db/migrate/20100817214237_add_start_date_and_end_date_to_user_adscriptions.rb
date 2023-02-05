@@ -1,4 +1,4 @@
-class AddStartDateAndEndDateToUserAdscriptions < ActiveRecord::Migration
+class AddStartDateAndEndDateToUserAdscriptions < ActiveRecord::Migration[6.1]
     def self.up
       add_column :user_adscriptions, :start_date, :date, :null => false, :default => Date.today
       add_column :user_adscriptions, :end_date, :date

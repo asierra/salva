@@ -1,4 +1,4 @@
-class CreateUserLabOrGroups < ActiveRecord::Migration
+class CreateUserLabOrGroups < ActiveRecord::Migration[6.1]
   def self.up
     create_table :user_lab_or_groups do |t|
       t.references :user

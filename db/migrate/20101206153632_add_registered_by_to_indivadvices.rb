@@ -1,4 +1,4 @@
-class AddRegisteredByToIndivadvices < ActiveRecord::Migration
+class AddRegisteredByToIndivadvices < ActiveRecord::Migration[6.1]
  def self.up
     if column_exists? :indivadvices, :moduser_id
       rename_column :indivadvices, :moduser_id, :registered_by_id

@@ -1,4 +1,4 @@
-class RemoveExternalusers < ActiveRecord::Migration
+class RemoveExternalusers < ActiveRecord::Migration[6.1]
   def self.up
     
     

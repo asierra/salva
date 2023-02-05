@@ -1,4 +1,4 @@
-class AddUniversityAndCountryToOtherModels < ActiveRecord::Migration
+class AddUniversityAndCountryToOtherModels < ActiveRecord::Migration[6.1]
   def change
     #Lista con las tablas en las que se agregan las columnas de institution_id university_id country_id degree_id
     tables = [:academicprograms,:theses,:tutorial_committees,:educations]

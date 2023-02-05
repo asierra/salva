@@ -1,4 +1,4 @@
-class AddRegisteredByToProjects < ActiveRecord::Migration
+class AddRegisteredByToProjects < ActiveRecord::Migration[6.1]
   def change
     if column_exists?  :projects, :moduser_id
       rename_column :projects, :moduser_id, :registered_by_id

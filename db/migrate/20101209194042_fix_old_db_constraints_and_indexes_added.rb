@@ -1,21 +1,21 @@
-class FixOldDbConstraintsAndIndexesAdded < ActiveRecord::Migration
+class FixOldDbConstraintsAndIndexesAdded < ActiveRecord::Migration[6.1]
   def self.up
-    unless index_name_exists? :student_activities, :student_activities_user_id_key1, :default
+    unless index_name_exists? :student_activities, :student_activities_user_id_key1
       execute "ALTER TABLE ONLY student_activities ADD CONSTRAINT student_activities_user_id_key1 UNIQUE (user_id, tutor_externaluser_id);"
     end
-    unless index_name_exists? :studentroles, :studentroles_name_key, :default
+    unless index_name_exists? :studentroles, :studentroles_name_key
       execute "ALTER TABLE ONLY studentroles ADD CONSTRAINT studentroles_name_key UNIQUE (name);"
     end
-    unless index_name_exists? :user_cites, :user_cites_user_id_key, :default
+    unless index_name_exists? :user_cites, :user_cites_user_id_key
       execute "ALTER TABLE ONLY user_cites ADD CONSTRAINT user_cites_user_id_key UNIQUE (user_id);"
     end
-    unless index_name_exists? :userrefereedpubs, :userrefereedpubs_refereedpubs_id_key, :default
+    unless index_name_exists? :userrefereedpubs, :userrefereedpubs_refereedpubs_id_key
       execute "ALTER TABLE ONLY userrefereedpubs ADD CONSTRAINT userrefereedpubs_refereedpubs_id_key UNIQUE (refereedpubs_id, externaluser_id, internaluser_id);"
     end
-    unless index_name_exists? :userresearchgroups, :userresearchgroups_researchgroup_id_key, :default
+    unless index_name_exists? :userresearchgroups, :userresearchgroups_researchgroup_id_key
       execute "ALTER TABLE ONLY userresearchgroups ADD CONSTRAINT userresearchgroups_researchgroup_id_key UNIQUE (researchgroup_id, internaluser_id);"
     end
-    unless index_name_exists? :userresearchgroups, :userresearchgroups_researchgroup_id_key1, :default
+    unless index_name_exists? :userresearchgroups, :userresearchgroups_researchgroup_id_key1
       execute "ALTER TABLE ONLY userresearchgroups ADD CONSTRAINT userresearchgroups_researchgroup_id_key1 UNIQUE (researchgroup_id, externaluser_id);"
     end
 
@@ -45,23 +45,23 @@ class FixOldDbConstraintsAndIndexesAdded < ActiveRecord::Migration
     end
 
     # CREATE INDEX index_versions_on_created_at ON versions USING btree (created_at);
-    unless index_name_exists? :versions, :index_versions_on_created_at, :default
+    unless index_name_exists? :versions, :index_versions_on_created_at
       add_index :versions, :created_at, :name => :index_versions_on_created_at
     end
 
 
     # CREATE INDEX user_id_and_article_id_idx ON user_articles USING btree (user_id, article_id);
-    unless index_name_exists? :user_articles, :user_id_and_article_id_idx, :default
+    unless index_name_exists? :user_articles, :user_id_and_article_id_idx
       add_index :user_articles, [:user_id, :article_id], :name => :user_id_and_article_id_idx
     end
 
     # CREATE UNIQUE INDEX academicprogramtypes_name_key ON academicprogramtypes USING btree (name);
-    unless index_name_exists? :academicprogramtypes, :academicprogramtypes_name_key, :default
+    unless index_name_exists? :academicprogramtypes, :academicprogramtypes_name_key
       add_index :academicprogramtypes, :name, :name => :academicprogramtypes_name_key, :unique => true
     end
 
     # CREATE UNIQUE INDEX people_id_key ON people USING btree (id);
-    unless index_name_exists? :people, :people_id_key, :default
+    unless index_name_exists? :people, :people_id_key
       add_index :people, :id, :name => :people_id_key, :unique => true
       execute "ALTER TABLE people ADD PRIMARY KEY (id);"
     end

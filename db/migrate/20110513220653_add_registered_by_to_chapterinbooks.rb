@@ -1,4 +1,4 @@
-class AddRegisteredByToChapterinbooks < ActiveRecord::Migration
+class AddRegisteredByToChapterinbooks < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists?  :chapterinbooks, :moduser_id
       rename_column :chapterinbooks, :moduser_id, :registered_by_id

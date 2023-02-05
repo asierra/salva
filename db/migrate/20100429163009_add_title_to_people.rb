@@ -1,4 +1,4 @@
-class AddTitleToPeople < ActiveRecord::Migration
+class AddTitleToPeople < ActiveRecord::Migration[6.1]
   def self.up
     add_column :people, :title, :string
   end

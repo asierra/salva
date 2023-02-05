@@ -1,4 +1,4 @@
-class RemovingDuplicatedRecordsFromPublishers < ActiveRecord::Migration
+class RemovingDuplicatedRecordsFromPublishers < ActiveRecord::Migration[6.1]
   def up
     execute "ALTER TABLE publishers DROP CONSTRAINT IF EXISTS publishers_name_key"
     puts "Normalizing names for Publishers..."

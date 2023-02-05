@@ -1,4 +1,4 @@
-class CreateUserAdscriptionRecords < ActiveRecord::Migration
+class CreateUserAdscriptionRecords < ActiveRecord::Migration[6.1]
   def change
     create_table :user_adscription_records do |t|
       t.references :user, :class_name => 'User', :foreign_key => 'user_id', :null => false

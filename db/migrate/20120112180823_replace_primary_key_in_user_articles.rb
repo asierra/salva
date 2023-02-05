@@ -1,4 +1,4 @@
-class ReplacePrimaryKeyInUserArticles < ActiveRecord::Migration
+class ReplacePrimaryKeyInUserArticles < ActiveRecord::Migration[6.1]
   def up
     execute "DROP INDEX user_id_and_article_id_idx"
     execute "ALTER TABLE user_articles DROP CONSTRAINT user_articles_pkey"

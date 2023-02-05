@@ -1,4 +1,4 @@
-class MoveInstitutionCareerIdInToCareerIdInAcademicProgramRecords < ActiveRecord::Migration
+class MoveInstitutionCareerIdInToCareerIdInAcademicProgramRecords < ActiveRecord::Migration[6.1]
   def self.up
     Academicprogram.all.each do |record|
       unless record.institutioncareer.nil?

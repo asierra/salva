@@ -1,4 +1,4 @@
-class AddRegisteredByIdToNewspapers < ActiveRecord::Migration
+class AddRegisteredByIdToNewspapers < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists?  :newspapers, :moduser_id
       rename_column :newspapers, :moduser_id, :registered_by_id

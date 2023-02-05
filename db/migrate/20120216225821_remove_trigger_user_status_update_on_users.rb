@@ -1,4 +1,4 @@
-class RemoveTriggerUserStatusUpdateOnUsers < ActiveRecord::Migration
+class RemoveTriggerUserStatusUpdateOnUsers < ActiveRecord::Migration[6.1]
   def up
     execute "DROP TRIGGER IF EXISTS userstatus_update ON users"
   end

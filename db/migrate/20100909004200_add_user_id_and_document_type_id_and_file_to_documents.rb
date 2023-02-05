@@ -1,4 +1,4 @@
-class AddUserIdAndDocumentTypeIdAndFileToDocuments < ActiveRecord::Migration
+class AddUserIdAndDocumentTypeIdAndFileToDocuments < ActiveRecord::Migration[6.1]
   def self.up
     [ :user_id, :document_type_id ].each do |column|
       unless column_exists? :documents, column 
