@@ -1,4 +1,4 @@
-class AddNameEnToResearchlines < ActiveRecord::Migration
+class AddNameEnToResearchlines < ActiveRecord::Migration[6.1]
   def self.up
     add_column :researchlines, :name_en, :string
   end

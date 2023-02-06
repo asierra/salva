@@ -1,4 +1,4 @@
-class AddRegisteredByToUserRefereedJournals < ActiveRecord::Migration
+class AddRegisteredByToUserRefereedJournals < ActiveRecord::Migration[6.1]
   def self.up
     add_column :user_refereed_journals, :registered_by_id, :integer
     add_column :user_refereed_journals, :modified_by_id, :integer

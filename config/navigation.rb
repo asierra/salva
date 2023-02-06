@@ -51,9 +51,9 @@ SimpleNavigation::Configuration.run do |navigation|
     #primary.item :profile, 'Perfil', user_profile_path, :highlights_on => /^\/$/ do |s|
     primary.item :profile, 'Perfil', '/', :highlights_on => /^\/$/ do |s|
       s.item :user_profile, 'Información general', user_profile_path, :highlights_on => /\/user_profile/
-      s.item :jobpositions, 'Categorías', jobpositions_path, :highlights_on => /\/jobpositions/
+      s.item :jobpositions, 'Categorías', jobpositions_path, :highlights_on => /\/jobpositions/ # this route does not exist?
       s.item :jobposition_log, :'Antigüedad en la UNAM', jobposition_log_path, :highlights_on => /\/jobposition_log/
-      s.item :external_jobpositions, 'Experiencia profesional externa', external_jobpositions_path, :highlights_on => /\/external_jobpositions/
+      s.item :external_jobpositions, 'Experiencia profesional externa', external_jobpositions_path, :highlights_on => /\/external_jobpositions/ # this route does not exist?
       s.item :educations, 'Escolaridad', educations_path, :highlights_on => /\/educations/
       s.item :projects, 'Proyectos', projects_path, :highlights_on => /\/projects/
       s.item :user_lab_or_groups, 'Laboratorios o grupos', user_lab_or_groups_path, :highlights_on => /\/user_lab_or_groups/

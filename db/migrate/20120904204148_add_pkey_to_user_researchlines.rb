@@ -1,4 +1,4 @@
-class AddPkeyToUserResearchlines < ActiveRecord::Migration
+class AddPkeyToUserResearchlines < ActiveRecord::Migration[6.1]
   def up
     execute <<-SQL
           ALTER TABLE user_researchlines

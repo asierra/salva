@@ -1,4 +1,4 @@
-class AddRegisteredByToProceedings < ActiveRecord::Migration
+class AddRegisteredByToProceedings < ActiveRecord::Migration[6.1]
    def self.up
     if column_exists?  :proceedings, :moduser_id
       rename_column :proceedings, :moduser_id, :registered_by_id

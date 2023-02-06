@@ -1,4 +1,4 @@
-class RemoveDegreeIdFromTutorialCommittees < ActiveRecord::Migration
+class RemoveDegreeIdFromTutorialCommittees < ActiveRecord::Migration[6.1]
   def self.up
     remove_column :tutorial_committees, :degree_id
   end

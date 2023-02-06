@@ -1,4 +1,4 @@
-class RemoveTriggerThesisDeleteOnTheses < ActiveRecord::Migration
+class RemoveTriggerThesisDeleteOnTheses < ActiveRecord::Migration[6.1]
   def up
     execute "DROP TRIGGER IF EXISTS thesis_delete ON theses"
   end

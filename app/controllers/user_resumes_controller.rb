@@ -5,8 +5,8 @@ class UserResumesController < ApplicationController
   respond_to :html, :pdf, :rtf
 
   def show
-    @profile = UserProfile.find(current_user.id)
-    @report_sections = Reporter::Base.find(:user_id_eq => current_user.id).all
+    @profile = Document::UserProfile.find(current_user.id)
+    @report_sections = Document::Reporter::Base.find(:user_id_eq => current_user.id).all
     @remote_ip = request.remote_ip
     respond_to do |format|
       format.html

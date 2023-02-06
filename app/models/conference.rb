@@ -2,7 +2,7 @@
 class Conference < ActiveRecord::Base
 
   # attr_accessor :name, :conferencetype_id, :conferencescope_id, :country_id, :year, :month, :location,
-                  :conference_institutions_attributes, :userconferences_attributes
+  #                 :conference_institutions_attributes, :userconferences_attributes
 
   validates_presence_of :name, :year, :conferencetype_id, :country_id, :conferencescope_id
 

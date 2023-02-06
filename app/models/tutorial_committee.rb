@@ -20,7 +20,7 @@ class TutorialCommittee < ActiveRecord::Base
   belongs_to :registered_by, :class_name => 'User', :foreign_key => 'registered_by_id'
   belongs_to :modified_by, :class_name => 'User', :foreign_key => 'modified_by_id'
 
-  default_scope -> { order(tutorial_committees: { year: :desc, studentname: :asc }) }
+  default_scope -> { order('tutorial_committees.year DESC, tutorial_committees.studentname ASC') }
   scope :degree_id, lambda { |id| where("degree_id = ?", id) }
   scope :adscription_id, lambda { |id| joins(:user => :user_adscription).where(:user => { :user_adscription => { :adscription_id => id} }) }
 

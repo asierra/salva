@@ -1,4 +1,4 @@
-class AddRegisteredByToUserRegularcourses < ActiveRecord::Migration
+class AddRegisteredByToUserRegularcourses < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists?  :user_regularcourses, :moduser_id
       rename_column :user_regularcourses, :moduser_id, :registered_by_id

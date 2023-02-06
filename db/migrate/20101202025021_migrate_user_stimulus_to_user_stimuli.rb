@@ -1,4 +1,4 @@
-class MigrateUserStimulusToUserStimuli < ActiveRecord::Migration
+class MigrateUserStimulusToUserStimuli < ActiveRecord::Migration[6.1]
   def self.up
     if table_exists? :user_stimulus
       execute 'INSERT INTO user_stimuli SELECT *,1 AS moduser_id FROM user_stimulus'

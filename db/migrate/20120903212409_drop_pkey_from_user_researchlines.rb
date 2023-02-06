@@ -1,4 +1,4 @@
-class DropPkeyFromUserResearchlines < ActiveRecord::Migration
+class DropPkeyFromUserResearchlines < ActiveRecord::Migration[6.1]
   def up
     execute <<-SQL
       ALTER TABLE user_researchlines

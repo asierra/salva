@@ -1,4 +1,4 @@
-class AddRegisteredByToAcadvisits < ActiveRecord::Migration
+class AddRegisteredByToAcadvisits < ActiveRecord::Migration[6.1]
   def change
     if column_exists? :acadvisits, :moduser_id
       rename_column :acadvisits, :moduser_id, :registered_by_id

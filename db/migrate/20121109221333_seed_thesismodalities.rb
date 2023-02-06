@@ -1,5 +1,5 @@
 # encoding: utf-8
-class SeedThesismodalities < ActiveRecord::Migration
+class SeedThesismodalities < ActiveRecord::Migration[6.1]
   def up
     @degree = Degree.find_by_name('Licenciatura')
     unless @degree.nil?

@@ -1,4 +1,4 @@
-class FillTableUserAdscriptionRecords2015 < ActiveRecord::Migration
+class FillTableUserAdscriptionRecords2015 < ActiveRecord::Migration[6.1]
   def up
     years = 2002..2015
     years.each do |year|

@@ -1,4 +1,4 @@
-class AddRegisteredByToUserCredits < ActiveRecord::Migration
+class AddRegisteredByToUserCredits < ActiveRecord::Migration[6.1]
   def self.up
      add_column :user_credits, :registered_by_id, :integer
      add_column :user_credits, :modified_by_id, :integer

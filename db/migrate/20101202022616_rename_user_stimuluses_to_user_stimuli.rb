@@ -1,4 +1,4 @@
-class RenameUserStimulusesToUserStimuli < ActiveRecord::Migration
+class RenameUserStimulusesToUserStimuli < ActiveRecord::Migration[6.1]
   
   def self.up
       if table_exists? :user_stimuluses    

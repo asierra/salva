@@ -1,4 +1,4 @@
-class CreateDepartmentHeads < ActiveRecord::Migration
+class CreateDepartmentHeads < ActiveRecord::Migration[6.1]
   def up
     unless table_exists? :department_heads
       create_table :department_heads do |t|

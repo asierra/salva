@@ -1,4 +1,4 @@
-class InsertDocumentTypes < ActiveRecord::Migration
+class InsertDocumentTypes < ActiveRecord::Migration[6.1]
   def self.up
     ['Informe anual de actividades', 'Informe anual', 'Informe final', 'Informe semestral'].each do |name|
       DocumentType.create(:name => name)

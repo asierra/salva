@@ -1,4 +1,4 @@
-class AddCareerIdToAcademicprograms < ActiveRecord::Migration
+class AddCareerIdToAcademicprograms < ActiveRecord::Migration[6.1]
   def self.up
     add_column :academicprograms, :career_id, :integer
   end

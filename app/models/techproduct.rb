@@ -20,9 +20,9 @@ class Techproduct < ActiveRecord::Base
   has_paper_trail
 
   #default_scope :order => 'techproducts.authors ASC, techproducts.title ASC'
-  default_scope -> { order(techproducts: { id: :asc }) }
+  default_scope -> { order('techproducts.id DESC') }
 
-  scope :all_by_year_desc, :order => 'user_techproducts.year DESC', :joins => :user_techproducts
+  scope :all_by_year_desc, -> { order('user_techproducts.year DESC').joins(:user_techproducts) }
 
   scope :user_id_eq, lambda { |user_id| all_by_year_desc.joins(:user_techproducts).where(:user_techproducts => {:user_id => user_id}) }
 

@@ -1,7 +1,7 @@
 require Rails.root.to_s + '/lib/salva/meta_date_extension'
 require Rails.root.to_s + '/lib/salva/meta_user_association'
 class Article < ActiveRecord::Base
-  include MetaDateExtension::DateMethods
+  include Salva::MetaDateExtension::DateMethods
   include Salva::MetaUserAssociation
   validates_presence_of :title, :articlestatus_id, :year, :authors, :journal_id
   validates_numericality_of :id, :journal_id, :only_integer => true, :greater_than => 0, :allow_nil => true
@@ -21,8 +21,8 @@ class Article < ActiveRecord::Base
   mount_uploader :document, DocumentUploader
   accepts_nested_attributes_for :user_articles, :allow_destroy => true
   # attr_accessor :authors, :title, :journal_id, :year, :month, :vol, :num, :pages, :doi, :url, :other,
-                  :articlestatus_id, :is_verified, :user_articles_id, :user_articles_attributes, :user_ids, :document, 
-                  :document_cache, :remove_document, :is_selected
+  #                 :articlestatus_id, :is_verified, :user_articles_id, :user_articles_attributes, :user_ids, :document, 
+  #                 :document_cache, :remove_document, :is_selected
 
   has_paper_trail
 
@@ -57,7 +57,7 @@ class Article < ActiveRecord::Base
     sql = "articles.id IN (#{article_in_adscription_sql})"
     where(sql)
   }
-  scope :recent, :limit => 50
+  scope :recent, -> { limit(50) }
 
   # search_methods :user_id_eq, :user_id_not_eq, :adscription_id_eq
 

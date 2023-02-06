@@ -1,4 +1,4 @@
-class AddRegisteredByToResearchlines < ActiveRecord::Migration
+class AddRegisteredByToResearchlines < ActiveRecord::Migration[6.1]
   def change
     if column_exists?  :researchlines, :moduser_id
       rename_column :researchlines, :moduser_id, :registered_by_id

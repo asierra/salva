@@ -1,4 +1,4 @@
-class AddDocumenttypeIdToUserDocuments < ActiveRecord::Migration
+class AddDocumenttypeIdToUserDocuments < ActiveRecord::Migration[6.1]
   def self.up
     add_column :user_documents, :documenttype_id, :integer
   end

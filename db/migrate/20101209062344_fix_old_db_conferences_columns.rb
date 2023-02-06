@@ -1,4 +1,4 @@
-class FixOldDbConferencesColumns < ActiveRecord::Migration
+class FixOldDbConferencesColumns < ActiveRecord::Migration[6.1]
   def self.up
     unless column_exists? :conferences, :other
       add_column :conferences, :other, :text

@@ -1,4 +1,4 @@
-class AddRegisteredByToLanguages < ActiveRecord::Migration
+class AddRegisteredByToLanguages < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :languages, :moduser_id
       rename_column :languages, :moduser_id, :registered_by_id

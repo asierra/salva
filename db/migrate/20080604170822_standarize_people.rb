@@ -1,4 +1,4 @@
-class StandarizePeople < ActiveRecord::Migration
+class StandarizePeople < ActiveRecord::Migration[6.1]
   def self.up
       add_column :people, :id, :serial;
   end

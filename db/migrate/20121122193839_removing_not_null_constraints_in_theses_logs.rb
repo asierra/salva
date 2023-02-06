@@ -1,4 +1,4 @@
-class RemovingNotNullConstraintsInThesesLogs < ActiveRecord::Migration
+class RemovingNotNullConstraintsInThesesLogs < ActiveRecord::Migration[6.1]
   def up
      execute "ALTER TABLE theses_logs ALTER COLUMN startyear DROP NOT NULL;"
   end

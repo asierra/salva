@@ -1,5 +1,5 @@
 # encoding: utf-8
-class UpgradeUserstatus < ActiveRecord::Migration
+class UpgradeUserstatus < ActiveRecord::Migration[6.1]
   def self.up
     { 1 => 'Baja - por defunción', 2 => 'Activo', 3 => 'Baja - por renuncia',
       4 => 'Baja - por termino de contrato', 5 => 'Inactivo' }.each_pair do |id, value|

@@ -1,4 +1,4 @@
-class AddStartDateAndEndDateToDocumentypes < ActiveRecord::Migration
+class AddStartDateAndEndDateToDocumentypes < ActiveRecord::Migration[6.1]
   def self.up
     add_column :documenttypes, :start_date, :date
     add_column :documenttypes, :end_date, :date

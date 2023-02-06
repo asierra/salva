@@ -1,4 +1,4 @@
-class RemoveUserStimulus < ActiveRecord::Migration
+class RemoveUserStimulus < ActiveRecord::Migration[6.1]
   def self.up
     if table_exists? :user_stimulus
       drop_table :user_stimulus

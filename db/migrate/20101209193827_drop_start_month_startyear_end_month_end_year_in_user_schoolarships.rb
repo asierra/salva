@@ -1,4 +1,4 @@
-class DropStartMonthStartyearEndMonthEndYearInUserSchoolarships < ActiveRecord::Migration
+class DropStartMonthStartyearEndMonthEndYearInUserSchoolarships < ActiveRecord::Migration[6.1]
   def self.up
     %w(startmonth startyear endmonth endyear).each do |column_name|
       remove_column :user_schoolarships, column_name.to_sym

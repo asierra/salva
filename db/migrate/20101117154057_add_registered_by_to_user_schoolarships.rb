@@ -1,4 +1,4 @@
-class AddRegisteredByToUserSchoolarships < ActiveRecord::Migration
+class AddRegisteredByToUserSchoolarships < ActiveRecord::Migration[6.1]
   def self.up
     add_column :user_schoolarships, :registered_by_id, :integer
     add_column :user_schoolarships, :modified_by_id, :integer

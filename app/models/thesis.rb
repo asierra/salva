@@ -30,12 +30,12 @@ class Thesis < ActiveRecord::Base
   mount_uploader :document, DocumentUploader
 
   # attr_accessor :title, :authors, :user_theses_attributes, :thesismodality_id, :thesisstatus_id, :end_date, :career_attributes, :start_date, :url,
-                  :startyear, :startmonth, :endyear, :endmonth, :is_verified, :user_theses_attributes, :user_ids, :document, :document_cache, :remove_document,
-                  :other, :institution_id, :university_id, :country_id, :degree_id, :career_id
+  #                 :startyear, :startmonth, :endyear, :endmonth, :is_verified, :user_theses_attributes, :user_ids, :document, :document_cache, :remove_document,
+  #                 :other, :institution_id, :university_id, :country_id, :degree_id, :career_id
   alias_attribute :name, :title
   has_paper_trail
 
-  default_scope -> { order(theses: { end_date: :desc, start_date: :desc, authors: :asc, title: :asc }) }
+  default_scope -> { order('theses.end_date DESC, theses.start_date DESC, theses.authors ASC, theses.title ASC') }
   scope :user_id_eq, lambda { |user_id| joins(:user_theses).where(:user_theses => { :user_id => user_id }) }
 
   scope :user_id_not_eq, lambda { |user_id|

@@ -1,4 +1,4 @@
-class AddRegisteredByToUserPrizes < ActiveRecord::Migration
+class AddRegisteredByToUserPrizes < ActiveRecord::Migration[6.1]
   def self.up
     rename_column :user_prizes, :moduser_id, :registered_by_id
     add_column    :user_prizes, :modified_by_id, :integer

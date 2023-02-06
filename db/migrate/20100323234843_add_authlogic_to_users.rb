@@ -1,4 +1,4 @@
-class AddAuthlogicToUsers < ActiveRecord::Migration
+class AddAuthlogicToUsers < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :users, :passwd
       rename_column :users, :passwd, :crypted_password

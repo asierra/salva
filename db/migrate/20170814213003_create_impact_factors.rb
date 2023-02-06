@@ -1,4 +1,4 @@
-class CreateImpactFactors < ActiveRecord::Migration
+class CreateImpactFactors < ActiveRecord::Migration[6.1]
   def change
     create_table :impact_factors do |t|
       t.references :journal, :class_name => 'Journal', :foreign_key => 'journal_id', :null => false

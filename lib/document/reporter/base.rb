@@ -1,7 +1,7 @@
 require 'document/reporter/builder'
 ::I18n.locale = I18n.locale.to_sym
 require 'irb'
-module Reporter
+module Document::Reporter
   class Base
     def self.find(attributes={})
       @reporter = new(attributes)
@@ -36,9 +36,9 @@ module Reporter
 
     def collection(subsection)
       if subsection.date_style == :date_disabled
-        subsection.search(:user_id_eq => @attributes[:user_id_eq])
+        subsection.ransack(:user_id_eq => @attributes[:user_id_eq])
       else
-        subsection.search(merge_date_options(subsection))
+        subsection.ransack(merge_date_options(subsection))
       end
     end
 

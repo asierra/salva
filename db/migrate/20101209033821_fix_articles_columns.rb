@@ -1,4 +1,4 @@
-class FixArticlesColumns < ActiveRecord::Migration
+class FixArticlesColumns < ActiveRecord::Migration[6.1]
   def self.up
     unless column_exists? :articles, :doi
       add_column :articles, :doi, :text

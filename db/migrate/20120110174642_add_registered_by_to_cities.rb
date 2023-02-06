@@ -1,4 +1,4 @@
-class AddRegisteredByToCities < ActiveRecord::Migration
+class AddRegisteredByToCities < ActiveRecord::Migration[6.1]
   def change
    if column_exists?  :cities, :moduser_id
       rename_column :cities, :moduser_id, :registered_by_id

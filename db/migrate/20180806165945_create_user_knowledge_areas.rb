@@ -1,4 +1,4 @@
-class CreateUserKnowledgeAreas < ActiveRecord::Migration
+class CreateUserKnowledgeAreas < ActiveRecord::Migration[6.1]
   def change
     create_table :user_knowledge_areas do |t|
       t.references :user

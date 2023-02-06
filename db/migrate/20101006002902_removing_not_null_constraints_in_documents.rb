@@ -1,4 +1,4 @@
-class RemovingNotNullConstraintsInDocuments < ActiveRecord::Migration
+class RemovingNotNullConstraintsInDocuments < ActiveRecord::Migration[6.1]
   def self.up
     execute "ALTER TABLE documents ALTER COLUMN documenttype_id DROP NOT NULL;"
     execute "ALTER TABLE documents ALTER COLUMN title DROP NOT NULL;"

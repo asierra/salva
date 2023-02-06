@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Course < ActiveRecord::Base
   # attr_accessor :name, :courseduration_id, :modality_id, :hoursxweek, :totalhours, :startyear,
-    :startmonth, :endyear, :endmonth, :country_id, :location, :user_courses_attributes
+  #   :startmonth, :endyear, :endmonth, :country_id, :location, :user_courses_attributes
 
   validates_presence_of :name, :country_id, :courseduration_id, :modality_id, :startyear
   validates_numericality_of :country_id,  :courseduration_id, :modality_id
@@ -23,7 +23,7 @@ class Course < ActiveRecord::Base
 
   has_paper_trail
 
-  default_scope -> { order(courses: {endyear: :desc, endmonth: :desc, startyear: :desc, endmonth: :desc, name: :asc }) }
+  default_scope -> { order('courses.endyear DESC, courses.endmonth DESC, courses.startyear DESC, courses.endmonth DESC, courses.name ASC') }
   scope :attendees, -> { joins(:user_courses).where(:user_courses => { :roleincourse_id => 2 }) }
   scope :instructors, -> { joins(:user_courses).where('user_courses.roleincourse_id != 2') }
 

@@ -1,4 +1,4 @@
-class RemovingDuplicatedRecordsFromJournals < ActiveRecord::Migration
+class RemovingDuplicatedRecordsFromJournals < ActiveRecord::Migration[6.1]
   def up
     puts "Normalizing names for Journals..."
     Journal.all.each do |record|

@@ -1,4 +1,4 @@
-class MoveUniversityAndCountryIdsIntoOtherModels < ActiveRecord::Migration
+class MoveUniversityAndCountryIdsIntoOtherModels < ActiveRecord::Migration[6.1]
   def self.up
     cont = 0
 
@@ -6,7 +6,7 @@ class MoveUniversityAndCountryIdsIntoOtherModels < ActiveRecord::Migration
     models = [Career,Indivadvice]
     #Career #No sé si es necesario
     models.each do |model|
-      model.all(:order => 'id ASC').each do |record|
+      model.all.order('id ASC').each do |record|
         puts "Migrating #{model} ID: #{record.id}"
         model_id = record.id
         unless model_id.nil?
@@ -31,7 +31,7 @@ class MoveUniversityAndCountryIdsIntoOtherModels < ActiveRecord::Migration
     #Lista con los modelos para actualizar sus columnas de institution_id university_id country_id degree_id
     models = [Academicprogram,Thesis,TutorialCommittee,Education]
     models.each do |model|
-      model.all(:order => 'id ASC').each do |record|
+      model.all.order('id ASC').each do |record|
         puts "Migrating #{model} ID: #{record.id}"
         model_id = record.id
         unless model_id.nil?

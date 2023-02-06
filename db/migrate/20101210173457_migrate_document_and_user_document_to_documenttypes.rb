@@ -1,4 +1,4 @@
-class MigrateDocumentAndUserDocumentToDocumenttypes < ActiveRecord::Migration
+class MigrateDocumentAndUserDocumentToDocumenttypes < ActiveRecord::Migration[6.1]
   def self.up
     Document.all.each do |record|
       name = [record.documenttype.name, record.title].join(' - ')

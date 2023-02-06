@@ -1,4 +1,4 @@
-class FixOldDbAddConstraintToEducationsColumns < ActiveRecord::Migration
+class FixOldDbAddConstraintToEducationsColumns < ActiveRecord::Migration[6.1]
   def self.up
     #  los registros 267 y 270 no cumplen con el constraint
     # execute "update schoolings set is_studying_this = 'f' where id in (267, 270);"

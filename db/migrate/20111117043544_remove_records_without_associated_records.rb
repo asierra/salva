@@ -1,4 +1,4 @@
-class RemoveRecordsWithoutAssociatedRecords < ActiveRecord::Migration
+class RemoveRecordsWithoutAssociatedRecords < ActiveRecord::Migration[6.1]
   def up
     #execute "ALTER TABLE techproducts DROP CONSTRAINT techproducts_institution_id_fkey"
     #execute "ALTER TABLE techproducts DROP CONSTRAINT techproducts_techproducttype_id_fkey"

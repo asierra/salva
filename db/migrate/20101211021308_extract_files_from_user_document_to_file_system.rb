@@ -1,4 +1,4 @@
-class ExtractFilesFromUserDocumentToFileSystem < ActiveRecord::Migration
+class ExtractFilesFromUserDocumentToFileSystem < ActiveRecord::Migration[6.1]
   def self.up
     base_path = Rails.root.to_s + '/public/uploads'
 

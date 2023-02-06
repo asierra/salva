@@ -1,7 +1,7 @@
-class GeneratePersonId < ActiveRecord::Migration
+class GeneratePersonId < ActiveRecord::Migration[6.1]
   def self.up
       i = 0
-      Person.find(:all).each do |record|
+      Person.all.each do |record|
         i += 1
         record.id = i
         record.save

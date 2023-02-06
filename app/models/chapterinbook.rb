@@ -17,9 +17,9 @@ class Chapterinbook < ActiveRecord::Base
   has_paper_trail
 
   default_scope -> { order(title: :asc) }
-  scope :recent, :order => 'bookeditions.year DESC, bookeditions.month DESC', :include => :bookedition, :limit => 20
-  scope :published, :conditions => 'bookeditions.editionstatus_id = 1', :include => :bookedition
-  scope :inprogress, :conditions => 'bookeditions.editionstatus_id != 1', :include => :bookedition
+  scope :recent, -> { order('bookeditions.year DESC, bookeditions.month DESC').include(:bookedition).limit(20) }
+  scope :published, -> { where('bookeditions.editionstatus_id = 1').include(:bookedition) }
+  scope :inprogress, -> { where('bookeditions.editionstatus_id != 1').include(:bookedition) }
 
   scope :user_id_eq, lambda { |user_id|
     joins(:chapterinbook_roleinchapters).

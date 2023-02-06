@@ -21,13 +21,13 @@ module LDAP
 
     def self.all_by_login_like(login)
       filter = Net::LDAP::Filter.eq("uid", "*#{login.downcase}*")
-      self.ldap.search(:base => ldap_config['base'], :filter => filter, :return_result => true).collect do |entry|
+      self.ldap.ransack.result(:base => ldap_config['base'], :filter => filter, :return_result => true).collect do |entry|
         entry_to_record(entry)
       end
     end
 
     def self.find_by_login(login)
-      entry = self.ldap.search(:base => ldap_config['base'], :filter => Net::LDAP::Filter.eq("uid", login), :return_result => true ).first
+      entry = self.ldap.ransack.result(:base => ldap_config['base'], :filter => Net::LDAP::Filter.eq("uid", login), :return_result => true ).first
       entry_to_record(entry) unless entry.nil?
     end
 

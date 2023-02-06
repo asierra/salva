@@ -1,4 +1,4 @@
-class AddScopeByFuzzy < ActiveRecord::Migration
+class AddScopeByFuzzy < ActiveRecord::Migration[6.1]
   
   def self.up
     execute "SET search_path = public;"

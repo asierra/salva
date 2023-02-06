@@ -1,4 +1,4 @@
-class UpdateStartDateAndEndDateIntheses < ActiveRecord::Migration
+class UpdateStartDateAndEndDateIntheses < ActiveRecord::Migration[6.1]
   def up
     Thesis.all.each do |record|
       start_date, end_date = nil

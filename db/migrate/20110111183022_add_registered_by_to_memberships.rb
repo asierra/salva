@@ -1,4 +1,4 @@
-class AddRegisteredByToMemberships < ActiveRecord::Migration
+class AddRegisteredByToMemberships < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :memberships, :moduser_id
       rename_column :memberships, :moduser_id, :registered_by_id

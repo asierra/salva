@@ -1,4 +1,4 @@
-class UpdateSchoolarships < ActiveRecord::Migration
+class UpdateSchoolarships < ActiveRecord::Migration[6.1]
   def self.up
     Schoolarship.create(:name => 'Beca Directa', :institution_id => 96)
     Schoolarship.create(:name => 'Beca Directa', :institution_id => 5453)

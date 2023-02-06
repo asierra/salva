@@ -1,4 +1,4 @@
-class CreateRailsAdminHistories < ActiveRecord::Migration
+class CreateRailsAdminHistories < ActiveRecord::Migration[6.1]
   def change
     create_table :rails_admin_histories do |t|
       t.text :message

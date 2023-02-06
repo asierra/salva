@@ -9,14 +9,30 @@ Getting Started
 
 1. Install rvm in your linux distribution 
 2. Install ruby 2.7.2p137
-3. Install the gems with the ruby bundler
-4. Run ``yarn install``
-5. Install PostgresSQL 15.x, MemCached, Redis and ImageMagick
-6. Create your database, run the seeds to populate your database
-7. Copy the *yml.example files to *yml files in the config directory and
+3. Install SQLite3, Node.js and Yarn following the instructions from the [Rails Guides](https://guides.rubyonrails.org/v6.1/getting_started.html#creating-a-new-rails-project-installing-rails).
+4. Install PostgresSQL 15.x, MemCached, Redis and ImageMagick
+5. Copy the *yml.example files to *yml files in the config directory and
    adapt them to your configuration (The required are databases.yml, site.yml and mail.yml)
+5. Run ``bin/setup`` to install gems and yarn packages and set up the database.
+
+    If you encounter ``PG::InsufficientPrivilege: ERROR:  permission denied for language c``, you will need to login to PostgreSQL as superuser and enable permissions for C by doing the following:
+
+        psql -U postgres
+    
+        \c salva_dev
+    
+        UPDATE pg_language SET lanpltrusted = true WHERE lanname LIKE 'c';
+        
+        \c salva_test
+    
+        UPDATE pg_language SET lanpltrusted = true WHERE lanname LIKE 'c';
+
+    Run ``bin/setup`` again.
+
+
+6. Run ``rails db:seed`` to populate your database. Supply an admin password when prompted.
 8. Install passenger with apache or ngnix
-9. Start to web server
+9. Start the web server via ``passenger start``
 
 Authors
 =======

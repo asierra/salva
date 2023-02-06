@@ -1,4 +1,4 @@
-class CreateAnnualPlans < ActiveRecord::Migration
+class CreateAnnualPlans < ActiveRecord::Migration[6.1]
   def change
     create_table :annual_plans do |t|
       t.references :documenttype

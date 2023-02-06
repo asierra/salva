@@ -1,4 +1,4 @@
-class ReplacePrimaryKeyInUserNewspaperarticles < ActiveRecord::Migration
+class ReplacePrimaryKeyInUserNewspaperarticles < ActiveRecord::Migration[6.1]
   def up
     execute "ALTER TABLE user_newspaperarticles DROP CONSTRAINT user_newspaperarticles_pkey"
     record = UserNewspaperarticle.find_by_sql("SELECT id FROM user_newspaperarticles ORDER BY id DESC LIMIT 1").first

@@ -1,4 +1,4 @@
-class FixOldDbUserrefereedpubsColumns < ActiveRecord::Migration
+class FixOldDbUserrefereedpubsColumns < ActiveRecord::Migration[6.1]
   def self.up
     unless column_exists? :userrefereedpubs, :externaluser_id
       add_column :userrefereedpubs, :externaluser_id, :integer

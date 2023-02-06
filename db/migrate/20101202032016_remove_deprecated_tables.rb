@@ -1,4 +1,4 @@
-class RemoveDeprecatedTables < ActiveRecord::Migration
+class RemoveDeprecatedTables < ActiveRecord::Migration[6.1]
   def self.up
     [ :editions, :externaluserlevels, :externalusers, :tickets,
       :ticketstatuses, :trashes, :usercreditsarticles, :usercreditsbooks,

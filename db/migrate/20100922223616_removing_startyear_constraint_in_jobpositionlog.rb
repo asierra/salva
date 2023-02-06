@@ -1,4 +1,4 @@
-class RemovingStartyearConstraintInJobpositionlog < ActiveRecord::Migration
+class RemovingStartyearConstraintInJobpositionlog < ActiveRecord::Migration[6.1]
   def self.up
     execute "ALTER TABLE jobpositionlog ALTER COLUMN startyear DROP NOT NULL;"
   end

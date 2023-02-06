@@ -1,4 +1,4 @@
-class RemoveStartMonthAndStartYearAndEndMonthAndEndYearFromJobpositions < ActiveRecord::Migration
+class RemoveStartMonthAndStartYearAndEndMonthAndEndYearFromJobpositions < ActiveRecord::Migration[6.1]
   def self.up
     remove_column :jobpositions, :startmonth
     remove_column :jobpositions, :startyear

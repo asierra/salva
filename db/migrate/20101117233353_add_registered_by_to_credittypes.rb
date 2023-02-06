@@ -1,4 +1,4 @@
-class AddRegisteredByToCredittypes < ActiveRecord::Migration
+class AddRegisteredByToCredittypes < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists?  :credittypes, :moduser_id
       rename_column :credittypes, :moduser_id, :registered_by_id

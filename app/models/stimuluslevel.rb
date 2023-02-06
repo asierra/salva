@@ -5,7 +5,7 @@ class Stimuluslevel < ActiveRecord::Base
   validates_numericality_of :id, :allow_nil => true, :greater_than => 0, :only_integer => true
   belongs_to :stimulustype
   #has_many :user_stimuli
-  default_scope -> { includes(:stimulustype).order(stimulustypes: { name: :asc }, stimuluslevels: { name: :asc }) }
+  default_scope -> { includes(:stimulustype).order('stimulustypes.name ASC, stimuluslevels.name ASC') }
   accepts_nested_attributes_for :stimulustype
 
   def name_and_type

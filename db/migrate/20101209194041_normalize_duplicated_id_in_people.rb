@@ -1,4 +1,4 @@
-class NormalizeDuplicatedIdInPeople < ActiveRecord::Migration
+class NormalizeDuplicatedIdInPeople < ActiveRecord::Migration[6.1]
 
   def self.up
     if Person.count > 0

@@ -1,4 +1,4 @@
-class AddDeviseToUsers < ActiveRecord::Migration
+class AddDeviseToUsers < ActiveRecord::Migration[6.1]
   def self.up
     # Removing authlogic columns  
     [ :persistence_token, :single_access_token, :perishable_token, :login_count, :failed_login_count,

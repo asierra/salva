@@ -1,4 +1,4 @@
-class RenameModuserIdToModifiedByIdInUsers < ActiveRecord::Migration
+class RenameModuserIdToModifiedByIdInUsers < ActiveRecord::Migration[6.1]
   def self.up
     rename_column :users, :moduser_id, :modified_by_id
   end

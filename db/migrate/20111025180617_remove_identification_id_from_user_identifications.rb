@@ -1,4 +1,4 @@
-class RemoveIdentificationIdFromUserIdentifications < ActiveRecord::Migration
+class RemoveIdentificationIdFromUserIdentifications < ActiveRecord::Migration[6.1]
   def self.up
     remove_column :user_identifications, :identification_id
   end

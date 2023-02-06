@@ -1,4 +1,4 @@
-class AddLockableToUser < ActiveRecord::Migration
+class AddLockableToUser < ActiveRecord::Migration[6.1]
   def self.up
     add_column :users, :failed_attempts, :integer, default: 0
     add_column :users, :unlock_token, :string

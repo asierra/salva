@@ -1,8 +1,8 @@
-class FixOldDbAndChangeTypeResearchlinesColumns < ActiveRecord::Migration
+class FixOldDbAndChangeTypeResearchlinesColumns < ActiveRecord::Migration[6.1]
   def self.up
     # solo se debe de ejecutar si el tipo de :name_en es varchar
     add_column :researchlines, :temp_name_en, :text
-    Researchline.find(:all).each do |record|
+    Researchline.all.each do |record|
       record.temp_name_en = record.name_en
       record.save
     end

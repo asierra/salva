@@ -1,4 +1,4 @@
-class AddRegisteredByToInstitutionalActivities < ActiveRecord::Migration
+class AddRegisteredByToInstitutionalActivities < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists?  :institutional_activities, :moduser_id
       rename_column :institutional_activities, :moduser_id, :registered_by_id

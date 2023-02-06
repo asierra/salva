@@ -1,4 +1,4 @@
-class MoveStartMonthAndStartYearToStartDateInJobpositions < ActiveRecord::Migration
+class MoveStartMonthAndStartYearToStartDateInJobpositions < ActiveRecord::Migration[6.1]
   def self.up
     execute "DROP TRIGGER  IF EXISTS jobposition_delete ON jobpositions"
     execute "DROP TRIGGER  IF EXISTS jobposition_update ON jobpositions"

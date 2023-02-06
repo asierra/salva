@@ -1,6 +1,6 @@
 class Education < ActiveRecord::Base
   # attr_accessor :startyear, :endyear, :is_studying_this, :is_titleholder, :career_attributes,
-                  :institution_id, :university_id, :country_id, :degree_id, :career_id
+  #                 :institution_id, :university_id, :country_id, :degree_id, :career_id
 
   validates_presence_of  :startyear
   validates_numericality_of :id, :allow_nil => true,  :greater_than => 0, :only_integer => true

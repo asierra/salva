@@ -1,9 +1,9 @@
 class ThesisExamination < Thesis
   # attr_accessor :title, :authors, :thesismodality_id, :thesisstatus_id,
-                  :start_date, :end_date,
-                  :thesis_jurors_attributes, :career_attributes,
-                  :startyear, :endyear, :startmonth, :endmonth,
-                  :institution_id, :university_id, :country_id, :degree_id, :career_id
+  #                 :start_date, :end_date,
+  #                 :thesis_jurors_attributes, :career_attributes,
+  #                 :startyear, :endyear, :startmonth, :endmonth,
+  #                 :institution_id, :university_id, :country_id, :degree_id, :career_id
 
   has_many :thesis_jurors, :foreign_key => 'thesis_id'
   has_many :users, :through => :thesis_jurors

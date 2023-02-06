@@ -1,4 +1,4 @@
-class FillTableUserAdscriptionRecords2016 < ActiveRecord::Migration
+class FillTableUserAdscriptionRecords2016 < ActiveRecord::Migration[6.1]
   def up
     year = 2016
     user_ids = User.all.map{|u| u.id}

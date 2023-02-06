@@ -1,4 +1,4 @@
-class UpdateRecordsWithDuplicateIdFromUserResearchlines < ActiveRecord::Migration
+class UpdateRecordsWithDuplicateIdFromUserResearchlines < ActiveRecord::Migration[6.1]
   def up
     if UserResearchline.count > 0
       prev_id = 0

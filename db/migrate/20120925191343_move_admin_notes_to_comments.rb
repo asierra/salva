@@ -1,6 +1,6 @@
-class MoveAdminNotesToComments < ActiveRecord::Migration
+class MoveAdminNotesToComments < ActiveRecord::Migration[6.1]
   def self.up
-    remove_index  :admin_notes, [:user_type, :user_id]
+    remove_index  :admin_notes, name: 'index_admin_notes_on_user_type_and_user_id'
     rename_table  :admin_notes, :active_admin_comments
     rename_column :active_admin_comments, :user_type, :author_type
     rename_column :active_admin_comments, :user_id, :author_id

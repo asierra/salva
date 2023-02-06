@@ -1,4 +1,4 @@
-class AddRegisteredByToTechproducttype < ActiveRecord::Migration
+class AddRegisteredByToTechproducttype < ActiveRecord::Migration[6.1]
   def self.up
     if column_exists? :techproducttypes, :moduser_id
      rename_column :techproducttypes, :moduser_id, :registered_by_id

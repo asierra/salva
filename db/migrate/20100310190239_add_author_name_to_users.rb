@@ -1,4 +1,4 @@
-class AddAuthorNameToUsers < ActiveRecord::Migration
+class AddAuthorNameToUsers < ActiveRecord::Migration[6.1]
   def self.up
     add_column :users, :author_name, :string
   end

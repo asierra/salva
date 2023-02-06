@@ -1,4 +1,4 @@
-class AddAttributesToPeople < ActiveRecord::Migration
+class AddAttributesToPeople < ActiveRecord::Migration[6.1]
   def change
     add_column :people, :contact_name_1, :string
     add_column :people, :contact_phonenumber_1, :string
