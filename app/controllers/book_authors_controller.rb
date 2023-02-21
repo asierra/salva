@@ -26,4 +26,10 @@ class BookAuthorsController < PublicationController
     update! { collection_url }
   end
 
+  def book_author_params
+    params.require(:book_author).permit(:edition, :isbn, :pages, :year, :month, :mediatype_id, :editionstatus_id,
+     book_attributes: [:authors, :title, :booktype_id, :country_id, :language_id, :volume, :booklink],
+      bookedition_roleinbooks_attributes: [:user_id, :roleinbook_id])
+  end
+
 end

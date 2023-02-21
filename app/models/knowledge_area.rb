@@ -8,7 +8,7 @@ class KnowledgeArea < ActiveRecord::Base
   has_many :user_knowledge_areas
   belongs_to :knowledge_field
 
-  default_scope -> { order(knowledge_field_id,:id) }
+  default_scope -> { order(:knowledge_field_id, :id) }
 
   def to_s
     name

@@ -16,7 +16,7 @@ class UserAdscription < ActiveRecord::Base
   after_create :update_user_id
 
   def update_user_id
-    update_attributes(:user_id => jobposition.user_id) if self.user_id.nil?
+    update(:user_id => jobposition.user_id) if self.user_id.nil?
   end
 
   def self.most_recent_adscription user_id

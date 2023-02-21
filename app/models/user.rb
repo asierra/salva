@@ -2,7 +2,7 @@
 require File.join(Rails.root.to_s, 'lib/clients/student_client')
 require_relative '../../lib/aleph/helpers/user_model'
 require_relative '../../lib/ldap/helpers/user_model'
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base  
   after_create :request_id_card
   after_update :user_updates
   before_destroy :destroy_connected_users
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   # attr_accessor :email, :password, :password_confirmation, :remember_me
   extend LDAP::Helpers::UserModel
   extend Aleph::Helpers::UserModel
+  include ActiveModel::ForbiddenAttributesProtection
 
   if ldap_enabled?
     devise :ldap_authenticatable, :timeoutable, :lockable
@@ -318,7 +319,7 @@ class User < ActiveRecord::Base
 
   def update_ldap_password(attr)
     if valid_ldap_authentication?(attr[:current_password])
-      update_attributes(attr)
+      update(attr)
     else
       errors.add(:current_password, :invalid)
       false
@@ -534,9 +535,9 @@ class User < ActiveRecord::Base
      uar = UserAdscriptionRecord.where(:user_id=>u_id, :year=>year).first
      j_id = uar.jobposition_id
      a_id = uar.adscription_id
-     uar.update_attributes(:adscription_id=>a_id,:jobposition_id=>j_id)
+     uar.update(:adscription_id=>a_id,:jobposition_id=>j_id)
      ua = UserAdscription.where(:user_id=>u_id).last
-     ua.update_attributes(:adscription_id=>a_id)
+     ua.update(:adscription_id=>a_id)
    end
    if self.userstatus_id_changed?
      Notifier.updated_userstatus_to_admin(self.id).deliver
@@ -554,4 +555,9 @@ class User < ActiveRecord::Base
     destroy_aleph_user(self) if User.aleph_enabled?
   end
 
+  def update_attributes(hash)
+    sanitize_for_mass_assignment(hash).each do |attribute, value|
+      self.send("#{attribute}=", value)
+    end
+  end
 end

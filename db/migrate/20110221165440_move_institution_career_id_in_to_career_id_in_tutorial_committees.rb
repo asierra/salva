@@ -8,7 +8,7 @@ class MoveInstitutionCareerIdInToCareerIdInTutorialCommittees < ActiveRecord::Mi
         institution_id = record.institutioncareer.institution_id
         unless institution_id.nil?
           career = Career.find(record.career_id)
-          career.update_attributes(:institution_id => institution_id, :degree_id => record.degree_id)
+          career.update(:institution_id => institution_id, :degree_id => record.degree_id)
         end
       end
       record.save

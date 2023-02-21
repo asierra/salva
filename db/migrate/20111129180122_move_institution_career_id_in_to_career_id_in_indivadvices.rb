@@ -8,7 +8,7 @@ class MoveInstitutionCareerIdInToCareerIdInIndivadvices < ActiveRecord::Migratio
         institution_id = record.institution_id
         unless institution_id.nil?
           career = Career.find(record.career_id)
-          career.update_attributes(:institution_id => institution_id, :degree_id => record.degree_id)
+          career.update(:institution_id => institution_id, :degree_id => record.degree_id)
          end
       else
         if Career.exists?(:degree_id => record.degree_id, :name => 'No definida', :institution_id => record.institution_id)

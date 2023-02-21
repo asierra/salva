@@ -39,10 +39,10 @@ class UserAnnualReportsController < ApplicationController
   def update
     authorize_document!
     find_document_and_profile
-    if @annual_report.update_attributes(params[:annual_report].merge(:delivered => false))
+    if @annual_report.update(params[:annual_report].merge(:delivered => false))
       @d = Document.find_by_user_id_and_documenttype_id(current_user.id, @annual_report.documenttype_id)
       @d.destroy unless @d.nil?
-      respond_with(@annual_report, :status => :updated, :location => user_annual_report_path(@annual_report))
+      respond_with(@annual_report, :status => :ok, :location => user_annual_report_path(@annual_report))
     else
       respond_with(@annual_report, :status => :unprocessable_entity) do |format|
         format.html { render :action => :edit}

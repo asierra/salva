@@ -11,4 +11,4 @@
         = uc.hidden_field :id
         = uc.hidden_field :course_id, :value => @course.id
       = uc.hidden_field :user_id, :value => current_user.id
-      = uc.association :roleincourse, :collection => Roleincourse.instructors.all, :as => :radio, :wrapper_class => 'radio-set'
+      = uc.association :roleincourse, :collection => Roleincourse.instructors.all, :as => :radio_buttons, :wrapper_class => 'radio-set'

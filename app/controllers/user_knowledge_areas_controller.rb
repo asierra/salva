@@ -8,4 +8,8 @@ class UserKnowledgeAreasController < UserResourcesController
     build_resource.registered_by_id = current_user.id
     create! { collection_url }
   end
+
+  def user_knowledge_area_params
+    params.require(:user_knowledge_area).permit(:knowledge_area_id)
+  end
 end

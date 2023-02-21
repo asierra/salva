@@ -25,4 +25,9 @@ class ArticlesController < PublicationController
     update! { collection_url }
   end
 
+  def article_params
+    params.require(:article).permit(:authors, :title, :journal_id, :year, :month, :vol, :num, :pages, :doi, :url, :other, 
+     :is_selected, :articlestatus_id, user_articles_attributes: [:user_id, :ismainauthor])
+  end
+
 end

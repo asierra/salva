@@ -17,7 +17,7 @@
           = f.select :jobpositioncategory_id, {}
 
     .span-8.last
-      = f.input :contracttype_id, :as =>:radio, :collection =>Contracttype.all
+      = f.input :contracttype_id, :as => :radio_buttons, :collection =>Contracttype.all
 
   .row
     .span-5

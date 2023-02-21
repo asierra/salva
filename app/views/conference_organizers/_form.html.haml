@@ -11,4 +11,4 @@
         = uc.hidden_field :id
         = uc.hidden_field :conference_id, :value => @conference.id
       = uc.hidden_field :user_id, :value => current_user.id
-      = uc.association :roleinconference, :collection => Roleinconference.organizers.all, :as => :radio
+      = uc.association :roleinconference, :collection => Roleinconference.organizers.all, :as => :radio_buttons

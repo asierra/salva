@@ -3,7 +3,7 @@
 
   .row
     .span-6= f.input :indivname, :as => :string, :input_html => { :size => '35' }
-    .span-9= f.association :indivadvicetarget, :collection => Indivadvicetarget.students, :using =>:name, :as => :radio, :input_html => {:prompt => true}, :wrapper_class => 'radio-set'
+    .span-9= f.association :indivadvicetarget, :collection => Indivadvicetarget.students, :using =>:name, :as => :radio_buttons, :input_html => {:prompt => true}, :wrapper_class => 'radio-set'
     .span-3.last= f.input :hours, :as => :string, :input_html => { :size => '4', :autocomplete => "off", :required => true}
 
   .row
@@ -21,9 +21,9 @@
   .row
     %h4='Nombre de carrera y Grado'
   .row
-    = f.association :career, :as => :select, :collection => Career.all(:order => 'id ASC'), :label=>'Nombre de la carrera o posgrado', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.career_id || 26
+    = f.association :career, :as => :select, :collection => Career.order('id ASC'), :label=>'Nombre de la carrera o posgrado', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.career_id || 26
   .row
-    = f.association :degree, :collection => Degree.higher, :as => :radio, :wrapper_class => 'radio-set'
+    = f.association :degree, :collection => Degree.higher, :as => :radio_buttons, :wrapper_class => 'radio-set'
 
   .row
     %h4='Facultad o escuela'

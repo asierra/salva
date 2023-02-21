@@ -1,14 +1,14 @@
 .row
   %h4 Información del programa académico
-  .span-6= f.association :academicprogramtype, :as => :radio, :collection => Academicprogramtype.all, :wrapper_class => 'radio-set', :label_html => {:class => 'span-6' }
+  .span-6= f.association :academicprogramtype, :as => :radio_buttons, :collection => Academicprogramtype.all, :wrapper_class => 'radio-set', :label_html => {:class => 'span-6' }
   .span-12.last= f.input :year, :as => :string, :input_html => { :size => 4}
 
 .row
   %h4='Nombre de carrera y Grado'
 .row
-  = f.association :career, :as => :select, :collection => Career.all(:order => 'id ASC'), :label=>'Nombre de la carrera o posgrado', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.career_id || 26
+  = f.association :career, :as => :select, :collection => Career.order('id ASC'), :label=>'Nombre de la carrera o posgrado', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.career_id || 26
 .row
-  = f.association :degree, :collection => Degree.higher, :as => :radio, :wrapper_class => 'radio-set', :checked => f.object.degree_id || 3
+  = f.association :degree, :collection => Degree.higher, :as => :radio_buttons, :wrapper_class => 'radio-set', :checked => f.object.degree_id || 3
 
 .row
   %h4='Facultad o escuela'

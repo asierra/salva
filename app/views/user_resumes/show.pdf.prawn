@@ -18,7 +18,7 @@ prawn_document() do |pdf|
   pdf.draw_text @profile.birthdate, :style => :normal, :at => [160, pdf.cursor]
 
   pdf.text "Domicilio profesional:", :style => :bold
-  pdf.text_box @profile.address, :style => :normal, :at => [160, pdf.cursor], :width => 370
+  pdf.text_box @profile.address, :style => :normal, :at => [160, pdf.cursor], :width => 370 if @profile.address
   pdf.move_down(50)
 
   pdf.text "Teléfono:", :style => :bold

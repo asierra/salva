@@ -13,7 +13,7 @@
       = f.simple_fields_for :user_theses, @user_theses do |ut|
         = render :partial => 'user_theses/form', :locals => { :f => ut }
     .span-3
-      = f.association :thesisstatus, :as => :radio, :wrapper_class => 'radio-set', :input_html => {:class => 'radio-set-thesisstatus'}
+      = f.association :thesisstatus, :as => :radio_buttons, :wrapper_class => 'radio-set', :input_html => {:class => 'radio-set-thesisstatus'}
     .span-6.last
       = f.input :end_date, :as => :string, :input_html => { :size => '10', :autocomplete => "off", :class => 'date'}, :required => true, :label_html => { :class => 'span-8' }
 
@@ -27,11 +27,11 @@
   .row
     %h4='Nombre de carrera y Grado'
   .row
-    = f.association :career, :as => :select, :collection => Career.all(:order => 'id ASC'), :label=>'Nombre de la carrera o posgrado', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.career_id || 26
+    = f.association :career, :as => :select, :collection => Career.order('id ASC'), :label=>'Nombre de la carrera o posgrado', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.career_id || 26
   .row
-    = f.association :degree, :collection => Degree.higher, :as => :radio, :wrapper_class => 'radio-set', :checked => f.object.degree_id || 3
+    = f.association :degree, :collection => Degree.higher, :as => :radio_buttons, :wrapper_class => 'radio-set', :checked => f.object.degree_id || 3
   .row
-    = f.association :thesismodality, :as => :select, :collection => Thesismodality.all(:order => 'id ASC'), :label=>'Modalidad', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.thesismodality_id || 1
+    = f.association :thesismodality, :as => :select, :collection => Thesismodality.order('id ASC'), :label=>'Modalidad', :input_html => {:class => 'chosen-select chzn-container-big' }, :required => true,  :wrapper_html => { :class => 'span-10' }, :selected => f.object.thesismodality_id || 1
 
   .row
     %h4='Facultad o escuela'

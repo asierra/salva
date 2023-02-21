@@ -18,7 +18,7 @@ class Academic::AnnualReportsController < Academic::ApplicationController
 
   def update
     authorize_action!
-    @document.update_attributes(params[:document], :as => :academic)
+    @document.update(params[:document], :as => :academic)
     respond_with(@document, :location => academic_annual_reports_url )
   end
 
