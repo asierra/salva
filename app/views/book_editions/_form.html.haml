@@ -14,7 +14,7 @@
   .span-6
     = f.label :month, :required => true
     = f.select :month, localized_month_list, { :prompt => true }, :class => 'chosen-select'
-  .span-6.last= f.association :mediatype, :as => :radio, :wrapper_class =>'radio-set'
+  .span-6.last= f.association :mediatype, :as => :radio_buttons, :wrapper_class =>'radio-set'
 
 .row
-  = f.association :editionstatus, :as => :radio, :wrapper_class =>'radio-set'
+  = f.association :editionstatus, :as => :radio_buttons, :wrapper_class =>'radio-set'

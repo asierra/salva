@@ -23,5 +23,5 @@
     .span-6
       = render :partial => 'user_genericworks/form', :locals => {:genericwork => @genericwork, :f => f}
     .span-12.last
-      = f.association :genericworkstatus, :using => :name, :as => :radio, :wrapper_class => 'radio-set'
+      = f.association :genericworkstatus, :using => :name, :as => :radio_buttons, :wrapper_class => 'radio-set'
       = f.hidden_field :genericworktype_id, :value => 7

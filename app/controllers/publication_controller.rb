@@ -140,7 +140,7 @@ class PublicationController < InheritedResources::Base
 
   def set_user_in_role_class!
     if has_role_class_name?
-      resource_params.first[self.user_role_class.to_s+'_attributes'].first.last.merge!(:user_id => current_user.id)
+      resource_params.first[self.user_role_class.to_s+'_attributes']['0'].merge!(:user_id => current_user.id)
     end
   end
 

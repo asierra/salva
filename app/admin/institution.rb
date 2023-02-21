@@ -22,7 +22,7 @@ ActiveAdmin.register Institution do
     f.inputs do
       f.input :name, :as => :string
       f.input :url, :as => :string
-      f.input :institutiontype, :as => :radio
+      f.input :institutiontype, :as => :radio_buttons
       f.input :country
       f.input :institution, :as => :select, :collection => Institution.for_universities
     end

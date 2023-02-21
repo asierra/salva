@@ -32,7 +32,7 @@ ActiveAdmin.register User do
       f.input :login, :as => :string, :input_html => {:style => 'width: 100px;' }
       f.input :email, :as => :string
       f.object.userstatus_id = 2 if f.object.new_record?
-      f.input :userstatus, :as => :radio
+      f.input :userstatus, :as => :radio_buttons
       if f.object.new_record?
         f.input :password, :as => :password
         f.input :password_confirmation, :as => :password
@@ -40,7 +40,7 @@ ActiveAdmin.register User do
       f.input :user_incharge, :collection => User.activated.collect {|record| [record.to_s, record.id] }, :as => :select, :input_html => { :allow_single_deselect => true}
 
       f.inputs I18n.t("active_admin.user_group"), :for => [:user_group, f.object.user_group || UserGroup.new] do |ug_form|
-        ug_form.input :group, :as => :radio
+        ug_form.input :group, :as => :radio_buttons
       end
 
       f.inputs I18n.t("active_admin.jobposition_log"), :for => [:jobposition_log, f.object.jobposition_log || JobpositionLog.new(:academic_years=>nil,:administrative_years=>0)] do |jpl_form|
@@ -63,7 +63,7 @@ ActiveAdmin.register User do
         p_form.input :title, :as => :string, :input_html => {:style => 'width: 100px;' }
         p_form.input :title_en, :as => :string, :input_html => {:style => 'width: 100px;' }
         p_form.input :dateofbirth, :as => :string, :input_html => { :class => 'birthdate', :style => 'width: 70px;' }
-        p_form.input :gender, :as => :radio, :collection => [['Másculino', true], ['Femenino', false]]
+        p_form.input :gender, :as => :radio_buttons, :collection => [['Másculino', true], ['Femenino', false]]
         p_form.input :maritalstatus, :as => :select, :input_html => { :class => "chosen-select" }
         p_form.input :country, :as => :select
         p_form.input :state, :as => :select

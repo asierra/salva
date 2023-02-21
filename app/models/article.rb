@@ -26,7 +26,7 @@ class Article < ActiveRecord::Base
 
   has_paper_trail
 
-  default_scope -> {order(year: :desc, month: :desc, articlestatus_id: :asc, authors: :asc) }
+  default_scope -> { order(year: :desc, month: :desc, articlestatus_id: :asc, authors: :asc) }
   #default_scope :order => 'is_selected DESC, articlestatus_id ASC, year DESC, month DESC, authors ASC'
 
   scope :in_year, lambda { |year| where('year = ?', year) }

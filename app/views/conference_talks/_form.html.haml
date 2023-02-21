@@ -6,10 +6,10 @@
   .span-9= f.input :authors, :as => :string, :input_html => {:size => '40', :required => true}
   .span-9.last= f.input :title, :as => :string, :input_html => {:size => '40', :required => true}
 
-  .span-18.last= f.association :talktype, :as => :radio, :wrapper_class => 'radio-set'
+  .span-18.last= f.association :talktype, :as => :radio_buttons, :wrapper_class => 'radio-set'
 
-  .span-9= f.association :talkacceptance, :as => :radio, :wrapper_class => 'radio-set'
-  .span-9.last= f.association :modality, :as => :radio, :wrapper_class => 'radio-set'
+  .span-9= f.association :talkacceptance, :as => :radio_buttons, :wrapper_class => 'radio-set'
+  .span-9.last= f.association :modality, :as => :radio_buttons, :wrapper_class => 'radio-set'
 
   .row
     = render :partial => 'conference_talk_users/form', :locals => {:conference_talk => @conference_talk, :f => f}

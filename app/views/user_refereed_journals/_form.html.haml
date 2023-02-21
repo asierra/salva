@@ -6,7 +6,7 @@
     #journal.span-6.last
       = f.association :journal, :using => :name , :input_html  => {:class => 'chosen-select', :required => true}
       = link_to_new_record 'Agregar journal', new_journal_path
-    .span-12.last= f.association :refereed_criterium, :as => :radio, :collection => RefereedCriterium.all, :wrapper_class => 'radio-set'
+    .span-12.last= f.association :refereed_criterium, :as => :radio_buttons, :collection => RefereedCriterium.all, :wrapper_class => 'radio-set'
 
   .row
     .span-2

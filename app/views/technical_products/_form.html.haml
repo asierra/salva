@@ -7,7 +7,7 @@
     .span-9.last= f.input :title, :as => :text, :input_html => { :size => '50x1' }
 
   .row
-    .span-9= f.association :techproductstatus, :collection => Techproductstatus.all, :using => :name, :as => :radio, :prompt => true, :wrapper_class => 'radio-set'
+    .span-9= f.association :techproductstatus, :collection => Techproductstatus.all, :using => :name, :as => :radio_buttons, :prompt => true, :wrapper_class => 'radio-set'
     .span-9.last= f.association :techproducttype, :collection => Techproducttype.all, :using => :name, :input_html => {:prompt => true, :class => 'chosen-select', :required => true}
 
   .row

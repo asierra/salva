@@ -1,5 +1,5 @@
 .span-6
-  = f.input :adscription_id, :as =>:radio, :collection => Adscription.enabled, :wrapper_html => { :class => 'span-6' }
+  = f.input :adscription_id, :as => :radio_buttons, :collection => Adscription.enabled, :wrapper_html => { :class => 'span-6' }
 
 .span-11.last
   = f.input :descr, :as => :text, :input_html => {:size => '50x3'}

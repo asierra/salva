@@ -13,6 +13,6 @@ class UserCitesController < ApplicationController
     @user = User.find(current_user.id)
     @user.modified_by_id = current_user.id
     @user.update_attributes(params[:user])
-    respond_with(@user, :status => :updated, :location => user_cite_path)
+    respond_with(@user, :status => :ok, :location => user_cite_path)
   end
 end

@@ -11,7 +11,7 @@
     .span-9.last= f.input :descr, :as => :text, :input_html => { :size => '50x1', :required => true}
 
   .row
-    .span-18= f.association :projecttype, :collection => Projecttype.all, :as => :radio, :wrapper_class =>'radio-set'
+    .span-18= f.association :projecttype, :collection => Projecttype.all, :as => :radio_buttons, :wrapper_class =>'radio-set'
 
   .row
     .span-3
@@ -38,5 +38,5 @@
     -# = link_to 'Agregar otra fuente de financiamiento', '#', :id => 'new_checkbox'
 
   .row
-    .span-9= f.association :projectstatus, :collection => Projectstatus.all, :as => :radio, :wrapper_class =>'radio-set'
+    .span-9= f.association :projectstatus, :collection => Projectstatus.all, :as => :radio_buttons, :wrapper_class =>'radio-set'
     .span-9.last= render :partial => 'user_projects/form', :locals => {:project => @project, :f => f}

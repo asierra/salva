@@ -6,11 +6,11 @@ module LDAP
     include ActiveModel::AttributeMethods
     include ActiveModel::Validations
     include ActiveModel::Serialization
-    include ActiveModel::MassAssignmentSecurity
+    include ActiveModel::ForbiddenAttributesProtection
 
     extend  ActiveModel::Translation
 
-    attr_accessor :login, :fullname, :email, :password, :group, :new_record, :title
+    # attr_accessor :login, :fullname, :email, :password, :group, :new_record, :title
     define_attribute_methods  [:login, :fullname, :email, :password, :group, :title]
 
     validates_presence_of :login, :fullname, :email, :password, :group
@@ -21,13 +21,13 @@ module LDAP
 
     def self.all_by_login_like(login)
       filter = Net::LDAP::Filter.eq("uid", "*#{login.downcase}*")
-      self.ldap.ransack.result(:base => ldap_config['base'], :filter => filter, :return_result => true).collect do |entry|
+      self.ldap.search(:base => ldap_config['base'], :filter => filter, :return_result => true).collect do |entry|
         entry_to_record(entry)
       end
     end
 
     def self.find_by_login(login)
-      entry = self.ldap.ransack.result(:base => ldap_config['base'], :filter => Net::LDAP::Filter.eq("uid", login), :return_result => true ).first
+      entry = self.ldap.search(:base => ldap_config['base'], :filter => Net::LDAP::Filter.eq("uid", login), :return_result => true ).first
       entry_to_record(entry) unless entry.nil?
     end
 
@@ -41,7 +41,7 @@ module LDAP
     end
 
     def self.ldap_config
-      YAML.load(ERB.new(File.read("#{Rails.root}/config/ldap.yml")).result)[Rails.env]
+      YAML.load(ERB.new(File.read("#{Rails.root}/config/ldap.yml")).result)[Rails.env] if File.exist?("#{Rails.root}/config/ldap.yml")
     end
 
     def self.entry_to_record(entry)

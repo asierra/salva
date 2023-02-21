@@ -11,7 +11,7 @@
     .span-9.last= f.input :title, :as => :text, :input_html => { :size => '50x1' }
 
   .row
-    .span-9= f.association :seminarytype, :using => :name, :as => :radio, :wrapper_class => 'radio-set'
+    .span-9= f.association :seminarytype, :using => :name, :as => :radio_buttons, :wrapper_class => 'radio-set'
     .span-9.last= render :partial => 'user_seminaries/form', :locals => {:seminary => @seminary, :f => f}
 
   .row
