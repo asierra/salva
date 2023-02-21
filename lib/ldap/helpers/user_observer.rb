@@ -19,7 +19,7 @@ module LDAP
       def update_ldap_user(user)
         @ldap_user = LDAP::User.find_by_login(user.login)
         category_name = @user.category_name || 'N'
-        if @ldap_user.update_attributes(:login => user.login, :group => user.adscription_abbrev, :fullname => user.fullname_or_email,
+        if @ldap_user.update(:login => user.login, :group => user.adscription_abbrev, :fullname => user.fullname_or_email,
                                         :email => user.email, :password => user.password, :password_confirmation => user.password,
                                         :title => category_name
                                        )

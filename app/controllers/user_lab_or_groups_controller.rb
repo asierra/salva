@@ -8,4 +8,8 @@ class UserLabOrGroupsController < UserResourcesController
     build_resource.registered_by_id = current_user.id
     create! { collection_url }
   end
+
+  def user_lab_or_group_params
+    params.require(:user_lab_or_group).permit(:lab_or_group_id)
+  end
 end

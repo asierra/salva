@@ -15,8 +15,8 @@ class UserAnnualPlansController < ApplicationController
   def create
     authorize_document!
     find_document_and_profile
-    params[:annual_plan].merge!(:user_id => current_user.id, :documenttype_id => @document_type.id, :delivered => false)
-    @annual_plan = AnnualPlan.new(params[:annual_plan])
+    annual_plan_params.merge!(:user_id => current_user.id, :documenttype_id => @document_type.id, :delivered => false)
+    @annual_plan = AnnualPlan.new(annual_plan_params)
     if @annual_plan.save
       respond_with(@annual_plan, :status => :created, :location => user_annual_plan_path(@annual_plan))
     else
@@ -37,7 +37,7 @@ class UserAnnualPlansController < ApplicationController
   def update
     authorize_document!
     find_document_and_profile
-    if @annual_plan.update_attributes(params[:annual_plan].merge(:delivered => false))
+    if @annual_plan.update(annual_plan_params.merge(:delivered => false))
       @d = Document.find_by_user_id_and_documenttype_id(current_user.id, @annual_plan.documenttype_id)
       @d.destroy unless @d.nil?
       respond_with(@annual_plan, :status => :ok, :location =>user_annual_plan_path(@annual_plan))
@@ -77,7 +77,7 @@ class UserAnnualPlansController < ApplicationController
 
   def find_profile
     @document_type = Documenttype.annual_plans.active.first
-    @profile = UserProfile.find(current_user.id)
+    @profile = Document::UserProfile.find(current_user.id)
     @remote_ip = request.remote_ip
   end
 
@@ -87,5 +87,9 @@ class UserAnnualPlansController < ApplicationController
       Document.where(:user_id => current_user.id, :documenttype_id => @document_type.id).first.nil?
         authorize! :read, Document, :message => "Unable to read this document."
     end
+  end
+
+  def annual_plan_params
+    params.require(:annual_plan).permit(:body)
   end
 end

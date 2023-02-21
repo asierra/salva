@@ -10,7 +10,7 @@ class UserProfilesController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    @user.update_attributes(user_params)
+    @user.update(user_params)
     respond_with(@user, :status => :ok, :location => user_profile_path)
     update_related_records
   end

@@ -20,9 +20,9 @@ class UserObserver < ActiveRecord::Observer
       uar = UserAdscriptionRecord.where(:user_id=>u_id, :year=>year).first
       j_id = uar.jobposition_id
       a_id = uar.adscription_id
-      uar.update_attributes(:adscription_id=>a_id,:jobposition_id=>j_id)
+      uar.update(:adscription_id=>a_id,:jobposition_id=>j_id)
       ua = UserAdscription.where(:user_id=>u_id).last
-      ua.update_attributes(:adscription_id=>a_id)
+      ua.update(:adscription_id=>a_id)
     end
     if user.userstatus_id_changed?
       Notifier.updated_userstatus_to_admin(user.id).deliver
